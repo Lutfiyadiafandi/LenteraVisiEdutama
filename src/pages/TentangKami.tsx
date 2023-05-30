@@ -1,11 +1,14 @@
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import About from "../components/About";
+import Message from "../components/Message";
 
 function TentangKami() {
   return (
     <div>
       <Navigation />
-      TentangKami
+      <About />
+      <Message />
       <Footer />
     </div>
   );

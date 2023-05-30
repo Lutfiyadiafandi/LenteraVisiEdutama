@@ -23,9 +23,9 @@ const Testimoni = () => {
     },
   ];
   return (
-    <div className="max-w-screen-xl mx-auto mt-[200px] relative ">
+    <section className="max-w-screen-xl mx-auto mt-[120px]">
       <div className="flex flex-wrap">
-        <h2 className="text-[28px] sm:text-[40px] lg:text-[48px] font-semibold text-neutral800 px-2 xl:px-0">
+        <h2 className="text-heading-xl font-semibold text-neutral800 px-2 xl:px-0">
           Testimoni
         </h2>
         <div className="w-full lg:w-4/5 mx-auto p-2">
@@ -41,17 +41,19 @@ const Testimoni = () => {
           >
             {testi.map(({ id, image, name, desc }) => (
               <SwiperSlide key={id}>
-                <div className="max-w-[715px] flex flex-col sm:flex-row justify-center items-center p-2 sm:p-6 gap-4 border-gradient border-2 rounded-2xl mx-auto">
-                  <div className="flex-none w-[128px] h-[128px]">
-                    <img src={image} />
-                  </div>
-                  <div className="grow">
-                    <h4 className="text-2xl sm:text-[32px] text-[#010D23] font-medium text-center sm:text-left">
-                      {name}
-                    </h4>
-                    <p className="text-lg sm:text-[20px] text-[#3B4556] pt-2">
-                      {desc}
-                    </p>
+                <div className="xl:ml-[87px] max-w-[715px] rounded-2xl bg-gradient-to-r from-gradient to-primary300 p-[2px]">
+                  <div className="bg-neutral0 flex flex-col sm:flex-row justify-center items-center p-2 sm:p-6 gap-4 rounded-2xl mx-auto">
+                    <div className="flex-none w-[128px] h-[128px]">
+                      <img src={image} />
+                    </div>
+                    <div className="grow">
+                      <h4 className="text-heading-m text-neutral900 font-medium text-center sm:text-left">
+                        {name}
+                      </h4>
+                      <p className="text-type-l font-normal text-neutral500 pt-2">
+                        {desc}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </SwiperSlide>
@@ -59,7 +61,7 @@ const Testimoni = () => {
           </Swiper>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
