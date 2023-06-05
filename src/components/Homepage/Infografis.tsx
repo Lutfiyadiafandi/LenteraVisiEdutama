@@ -1,5 +1,5 @@
-import BgGrafis from "../assets/svg/BgInfog.svg";
-import Grafis from "../assets/svg/Grafis.svg";
+import BgGrafis from "../../assets/svg/Bg-Infografis.svg";
+import Grafis from "../../assets/svg/Grafis.svg";
 
 const Infografis = () => {
   return (

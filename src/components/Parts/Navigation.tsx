@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Logo from "../assets/img/logo.png";
+import Logo from "../../assets/img/Logo.png";
 import { NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 
@@ -9,7 +9,7 @@ const Navigation = () => {
     {
       id: 1,
       link: "home",
-      path: "/home",
+      path: "/",
     },
     {
       id: 2,
@@ -28,8 +28,8 @@ const Navigation = () => {
     },
     {
       id: 5,
-      link: "contact kami",
-      path: "/",
+      link: "contact us",
+      path: "/contactus",
     },
   ];
   return (

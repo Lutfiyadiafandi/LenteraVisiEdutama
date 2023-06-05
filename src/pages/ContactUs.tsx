@@ -1,14 +1,14 @@
 import Navigation from "../components/Parts/Navigation";
 import Footer from "../components/Parts/Footer";
 
-function LayananKami() {
+function ContactUs() {
   return (
     <div>
       <Navigation />
-      LayananKami
+      Contact Us
       <Footer />
     </div>
   );
 }
 
-export default LayananKami;
+export default ContactUs;

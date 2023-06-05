@@ -1,10 +1,10 @@
-import Hero from "../assets/svg/Banner-Hero.svg";
+import Hero from "../../assets/svg/Banner-Hero.svg";
 
 const Banner = () => {
   return (
     <section className="max-w-screen-xl mx-auto flex flex-col md:flex-row relative px-4 xxl:px-0">
       <div className="flex flex-col mt-[20px] md:mt-[72px]">
-        <div className="w-full xl:w-full mb-[15px]">
+        <div className="w-full mb-[15px]">
           <h2 className="text-heading-m md:text-heading-xl font-semibold text-neutral800">
             Bersama{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-gradient to-primary300">
@@ -28,8 +28,8 @@ const Banner = () => {
       </div>
 
       <div className="mt-[34px] order-first md:order-last">
-        <figure className="xl:absolute xl:right-0">
-          <img src={Hero} alt="" className="w-4/5 xl:w-full mx-auto" />
+        <figure className="md:absolute md:top-32 xl:top-10 md:right-5 md:w-[393px] xl:w-[591.81px] mx-auto">
+          <img src={Hero} alt="" className="w-full" />
         </figure>
       </div>
     </section>

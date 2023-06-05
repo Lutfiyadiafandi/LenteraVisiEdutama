@@ -1,17 +1,16 @@
-import Self from "../assets/svg/Self.svg";
-import Love from "../assets/svg/Love.svg";
-import Team from "../assets/svg/Team.svg";
-import Icon from "../assets/svg/Icon.svg";
-import Pray from "../assets/svg/Pray.svg";
+import Self from "../../assets/svg/Layanan-Self.svg";
+import Love from "../../assets/svg/Layanan-Love.svg";
+import Team from "../../assets/svg/Layanan-Team.svg";
+import Icon from "../../assets/svg/Layanan-Icon.svg";
+import Pray from "../../assets/svg/Layanan-Pray.svg";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 
-// Import Swiper styles
-import "swiper/css";
 import "swiper/css/navigation";
 
 const SliderService = () => {
-  const pro = [
+  const servs = [
     {
       id: 1,
       logo: Self,
@@ -60,7 +59,7 @@ const SliderService = () => {
           },
         }}
       >
-        {pro.map(({ id, logo, title }) => (
+        {servs.map(({ id, logo, title }) => (
           <SwiperSlide key={id}>
             <div className="flex justify-center">
               <div className="w-[295px] h-[235px] rounded-2xl bg-gradient-to-r from-gradient to-primary300 p-[2px]">

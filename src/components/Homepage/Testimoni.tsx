@@ -1,6 +1,6 @@
 import React from "react";
-import Men from "../assets/img/Men.png";
-import Women from "../assets/img/Women.png";
+import Men from "../../assets/img/Img-Testimoni.png";
+import Women from "../../assets/img/Img-Testimoni2.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 

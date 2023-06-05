@@ -1,5 +1,5 @@
-import Navigation from "../components/Navigation";
-import Footer from "../components/Footer";
+import Navigation from "../components/Parts/Navigation";
+import Footer from "../components/Parts/Footer";
 
 function Artikel() {
   return (
