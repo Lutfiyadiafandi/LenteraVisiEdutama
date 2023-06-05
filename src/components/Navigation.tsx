@@ -34,10 +34,10 @@ const Navigation = () => {
   ];
   return (
     <div className="shadow-sm">
-      <div className="max-w-screen-xl mx-auto">
+      <div className="max-w-screen-xl mx-auto px-4 xxl:px-0">
         <div className="w-full flex justify-between items-center py-5">
-          <div className="px-4 xl:px-0">
-            <img src={Logo} className="w-10 sm:w-20" />
+          <div className="">
+            <img src={Logo} className="w-10 md:w-14 xl:w-20" />
           </div>
           <div>
             <ul className="hidden sm:flex">
@@ -54,7 +54,7 @@ const Navigation = () => {
 
           <div
             onClick={() => setNav(!nav)}
-            className="cursor-pointer px-4 text-primary500 sm:hidden"
+            className="cursor-pointer text-primary500 sm:hidden"
           >
             {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
           </div>

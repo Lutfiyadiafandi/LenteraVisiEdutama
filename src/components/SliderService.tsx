@@ -10,7 +10,7 @@ import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 
-const SliderProgram = () => {
+const SliderService = () => {
   const pro = [
     {
       id: 1,
@@ -81,4 +81,4 @@ const SliderProgram = () => {
   );
 };
 
-export default SliderProgram;
+export default SliderService;

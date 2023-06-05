@@ -9,7 +9,6 @@ function TentangKami() {
       <Navigation />
       <About />
       <Message />
-      <Footer />
     </div>
   );
 }
