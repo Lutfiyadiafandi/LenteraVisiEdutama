@@ -12,4 +12,43 @@ body,
   width: 100%;
   font-family: "Inter", sans-serif;
   overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.paginationBtn {
+  min-width: 100px;
+  height: 40px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.paginationBtn a {
+  width: 40px;
+  height: 35px;
+  padding: 8px 16px;
+  color: #3b4556;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 4px;
+  border-radius: 4px;
+  border: 1px solid #7daec4;
+  cursor: pointer;
+}
+.paginationBtn a:hover {
+  color: white;
+  background-color: #1e739a;
+}
+.activeBtn a {
+  color: white;
+  background-color: #1e739a;
+}
+
+@media screen and (max-width: 576px) {
+  .paginationBtn {
+    margin-top: 8px;
+  }
+  .paginationBtn a {
+    padding: 4px 8px;
+  }
 }

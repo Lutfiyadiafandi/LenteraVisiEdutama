@@ -43,7 +43,6 @@ module.exports = {
         neutral900: "#010D23",
         //
         gradient: "#71D1E7", //to Primary300
-
         //
         primary50: "#E9F1F5",
         primary75: "#A3C6D6",

@@ -39,21 +39,19 @@ const Testimoni = () => {
             modules={[Pagination]}
             className="mySwiper"
           >
-            {testi.map(({ id, image, name, desc }) => (
-              <SwiperSlide key={id}>
-                <div className="xxl:ml-[87px] max-w-[715px] rounded-2xl bg-gradient-to-r from-gradient to-primary300 p-[1px]">
-                  <div className="bg-neutral0 flex flex-col sm:flex-row justify-center items-center p-4 md:p-6 gap-4 rounded-2xl mx-auto">
-                    <div className="flex-none w-[128px] h-[128px]">
-                      <img src={image} />
-                    </div>
-                    <div className="grow">
-                      <h4 className="text-heading-s md:text-heading-m text-neutral900 font-medium text-center md:text-left">
-                        {name}
-                      </h4>
-                      <p className="text-type-m md:text-type-l font-normal text-neutral500 pt-2">
-                        {desc}
-                      </p>
-                    </div>
+            {testi.map((testi) => (
+              <SwiperSlide key={testi.id}>
+                <div className="lg:ml-[50px] xxl:ml-[87px] max-w-[715px] mx-auto rounded-2xl flex flex-col sm:flex-row justify-center items-center p-4 md:p-6 gap-4 border-[1px] border-gradient">
+                  <div className="flex-none w-[128px] h-[128px]">
+                    <img src={testi.image} />
+                  </div>
+                  <div className="grow">
+                    <h4 className="text-heading-s md:text-heading-m text-neutral900 font-medium text-center md:text-left">
+                      {testi.name}
+                    </h4>
+                    <p className="text-type-m md:text-type-l font-normal text-neutral500 pt-2">
+                      {testi.desc}
+                    </p>
                   </div>
                 </div>
               </SwiperSlide>

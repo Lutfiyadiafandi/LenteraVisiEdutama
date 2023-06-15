@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import Mesage from "../../assets/img/Img-Message.png";
 
 const Message = () => {
@@ -17,7 +18,7 @@ const Message = () => {
             elementum habitant amet pulvinar semper.
           </p>
           <button className="w-[132px] rounded-lg bg-white text-neutral900 text-type-s md:text-type-m py-2 px-4 mx-auto md:mx-0 hover:bg-neutral-950 hover:text-white">
-            Contact Now
+            <NavLink to="/contactus">Contact Now</NavLink>
           </button>
         </div>
       </div>

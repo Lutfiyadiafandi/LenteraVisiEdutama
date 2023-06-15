@@ -7,6 +7,7 @@ import Service from "../components/Homepage/Service";
 import Infografis from "../components/Homepage/Infografis";
 import Partner from "../components/Homepage/Partner";
 import Testimoni from "../components/Homepage/Testimoni";
+import Blog from "../components/Artikel/Blog";
 
 function Home() {
   return (
@@ -18,6 +19,8 @@ function Home() {
       <Infografis />
       <Partner />
       <Testimoni />
+      <Blog />
+      <Footer />
     </>
   );
 }

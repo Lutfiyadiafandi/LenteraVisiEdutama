@@ -27,7 +27,7 @@ const Supremacy = () => {
             key={id}
             className="max-w-[350px] sm:max-w-[400px] flex gap-4 py-5 px-4 bg-primary500 rounded-2xl text-neutral0 mx-auto"
           >
-            <div className="flex flex-none justify-center items-center w-[37px] h-[55px]  bg-primary200 rounded-lg p-2">
+            <div className="flex flex-none justify-center items-center w-[36px] h-[55px]  bg-primary200 rounded-lg p-2">
               <h3 className="text-heading-s md:text-heading-m font-semibold text-neutral0">
                 {id}
               </h3>

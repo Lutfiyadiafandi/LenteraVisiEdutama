@@ -5,6 +5,8 @@ import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navigation = () => {
   const [nav, setNav] = useState(false);
+  const iconColor = "#12465E";
+  const iconColor2 = "#A3C6D6";
   const navs = [
     {
       id: 1,
@@ -33,20 +35,20 @@ const Navigation = () => {
     },
   ];
   return (
-    <div className="shadow-sm">
+    <header className="w-full shadow-md">
       <div className="max-w-screen-xl mx-auto px-4 xxl:px-0">
-        <div className="w-full flex justify-between items-center py-5">
-          <div className="">
+        <div className="flex justify-between items-center py-5 px-2">
+          <div>
             <img src={Logo} className="w-10 md:w-14 xl:w-20" />
           </div>
           <div>
             <ul className="hidden sm:flex">
-              {navs.map(({ id, link, path }) => (
+              {navs.map((nav) => (
                 <li
-                  key={id}
+                  key={nav.id}
                   className="pl-6 cursor-pointer capitalize font-medium text-type-m text-primary500 hover:text-primary200 active:text-primary200 active:font-semibold"
                 >
-                  <NavLink to={path}>{link}</NavLink>
+                  <NavLink to={nav.path}>{nav.link}</NavLink>
                 </li>
               ))}
             </ul>
@@ -54,20 +56,24 @@ const Navigation = () => {
 
           <div
             onClick={() => setNav(!nav)}
-            className="cursor-pointer text-primary500 sm:hidden"
+            className="cursor-pointer text-primary500 sm:hidden rounded-md z-50"
           >
-            {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
+            {nav ? (
+              <FaTimes size={30} color={iconColor2} />
+            ) : (
+              <FaBars size={30} color={iconColor} />
+            )}
           </div>
 
           {nav && (
-            <ul className="flex flex-col justify-center items-center absolute top-20 right-0 w-full h-1/2 mx-auto bg-primary50 z-50">
-              {navs.map(({ id, link, path }) => (
+            <ul className="flex flex-col items-start px-10 w-3/4 h-screen absolute top-0 right-0 bg-primary500 pt-20 z-40">
+              {navs.map((nav) => (
                 <li
-                  key={id}
-                  className="py-3 cursor-pointer capitalize font-medium text-lg text-primary500 hover:text-primary75"
+                  key={nav.id}
+                  className="py-3 cursor-pointer capitalize font-medium text-type-l  text-primary50 hover:text-primary300"
                 >
-                  <NavLink onClick={() => setNav(!nav)} to={path}>
-                    {link}
+                  <NavLink onClick={() => setNav(!nav)} to={nav.path}>
+                    {nav.link}
                   </NavLink>
                 </li>
               ))}
@@ -75,7 +81,7 @@ const Navigation = () => {
           )}
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

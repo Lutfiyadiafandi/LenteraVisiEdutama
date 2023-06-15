@@ -59,17 +59,15 @@ const SliderService = () => {
           },
         }}
       >
-        {servs.map(({ id, logo, title }) => (
-          <SwiperSlide key={id}>
+        {servs.map((serv) => (
+          <SwiperSlide key={serv.id}>
             <div className="flex justify-center">
-              <div className="w-[295px] h-[235px] rounded-2xl bg-gradient-to-r from-gradient to-primary300 p-[2px]">
-                <div className="w-full h-full bg-neutral0 items-center justify-center flex rounded-2xl">
-                  <div className="mx-4 my-5 flex flex-col justify-center items-center">
-                    <img src={logo} className="w-[112px]" />
-                    <p className="text-type-l font-medium text-primary300 pt-6 text-center">
-                      {title}
-                    </p>
-                  </div>
+              <div className="w-[295px] h-[234px] bg-neutral0 items-center justify-center flex rounded-2xl border-2 border-gradient cursor-pointer group hover:bg-primary300">
+                <div className="mx-4 my-5 flex flex-col justify-center items-center">
+                  <img src={serv.logo} className="w-[112px]" />
+                  <p className="text-type-l font-medium text-primary300 pt-6 text-center group-hover:text-neutral0">
+                    {serv.title}
+                  </p>
                 </div>
               </div>
             </div>

@@ -1,13 +1,14 @@
 import Navigation from "../components/Parts/Navigation";
 import Footer from "../components/Parts/Footer";
+import Contact from "../components/ContactUs/Contact";
 
 function ContactUs() {
   return (
-    <div>
+    <>
       <Navigation />
-      Contact Us
+      <Contact />
       <Footer />
-    </div>
+    </>
   );
 }
 
