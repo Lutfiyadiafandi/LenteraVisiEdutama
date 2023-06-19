@@ -9,9 +9,9 @@ import ImgArtikel5 from "../../assets/img/Img-Artikel5.png";
 import Icon from "../../assets/svg/Icon.svg";
 
 import ArtikelComp from "./ArtikelComp";
+import Button from "../Atoms/Button";
 
 const ArtikelList = () => {
-  const iconcolor = "#1E739A";
   const blogs = [
     {
       id: 1,
@@ -81,8 +81,8 @@ const ArtikelList = () => {
         </h2>
       </div>
       {/* SEARCH */}
-      <div className="w-full md:w-3/5 flex justify-between items-center gap-2 md:gap-4 border-[1px] border-neutral30 rounded-md p-[10px]">
-        <FaSearch size={30} color={iconcolor} />
+      <div className="w-full md:w-1/2 flex justify-between items-center gap-2 md:gap-4 border-[1px] border-neutral30 rounded-md p-[10px]">
+        <FaSearch size={30} color="#1E739A" />
         <input
           type="search"
           name="search"
@@ -90,9 +90,16 @@ const ArtikelList = () => {
           placeholder="Search here..."
           className="w-full py-[10px] px-2 text-type-s md:text-type-m font-normal text-neutral900 focus:outline-gradient"
         />
-        <button className="py-2 px-4 md:px-8 mx-auto rounded border-[1px] border-gradient text-type-s md:text-type-m font-normal text-neutral900 cursor-pointer hover:bg-primary300 hover:text-neutral30">
-          Search
-        </button>
+
+        <Button
+          children={"Search"}
+          onClick={function (): void {
+            throw new Error("Function not implemented.");
+          }}
+          colour={"neutral900"}
+          hColour={"neutral30"}
+          hBgColor={"primary300"}
+        />
       </div>
       {/* ARTIKEL LIST */}
       <div className="pt-[22px] flex flex-col gap-4">{displayArtikels}</div>

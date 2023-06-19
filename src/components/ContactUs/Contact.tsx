@@ -1,6 +1,15 @@
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
+import Button from "../Atoms/Button";
 
+const Icons = () => {
+  return (
+    <div className="flex justify-center">
+      Submit
+      <FaArrowRight className="ml-1 text-neutral900 group-hover:text-neutral30" />
+    </div>
+  );
+};
 const Contact = () => {
   return (
     <section className="w-full mx-auto">
@@ -22,9 +31,9 @@ const Contact = () => {
         <div className="w-full md:w-1/2 bg-neutral900 mt-4">
           <form
             action=""
-            className="flex flex-col items-center gap-5 w-full py-20 mx-auto"
+            className="flex flex-col items-center gap-5 w-4/5 md:w-3/4 py-20 mx-auto"
           >
-            <div className="flex flex-col w-4/5 md:w-3/4 gap-2">
+            <div className="w-full flex flex-col gap-2">
               <label
                 htmlFor="nama"
                 className="text-type-m font-normal text-neutral0"
@@ -38,7 +47,7 @@ const Contact = () => {
                 className="py-2 px-4 rounded-md text-type-m text-neutral900"
               />
             </div>
-            <div className="flex flex-col w-4/5 md:w-3/4 gap-2">
+            <div className="w-full flex flex-col  gap-2">
               <label
                 htmlFor="email"
                 className="text-type-m font-normal text-neutral0"
@@ -52,7 +61,7 @@ const Contact = () => {
                 className="py-2 px-4 rounded-md text-type-m text-neutral900"
               />
             </div>
-            <div className="flex flex-col w-4/5 md:w-3/4 gap-2">
+            <div className="w-full flex flex-col  gap-2">
               <label
                 htmlFor="pesan"
                 className="text-type-m font-normal text-neutral0"
@@ -67,16 +76,15 @@ const Contact = () => {
               ></textarea>
             </div>
 
-            <div className="w-4/5 md:w-3/4">
-              <button
-                type="submit"
-                value="Submit"
-                form=""
-                className="w-full py-2 text-type-m font-medium text-neutral900 bg-neutral0 rounded-lg flex justify-center items-center cursor-pointer hover:bg-neutral500 hover:text-neutral0 transition-all ease-in-out duration-300"
-              >
-                Submit
-                <FaArrowRight className="ml-1" />
-              </button>
+            <div className="w-full">
+              <Button
+                children={Icons()}
+                onClick={() => console.log("test")}
+                size="full"
+                colour={"neutral900"}
+                hColour={"neutral30"}
+                hBgColor={"neutral900"}
+              />
             </div>
           </form>
         </div>

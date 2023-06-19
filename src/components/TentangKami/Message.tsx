@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Mesage from "../../assets/img/Img-Message.png";
+import Button from "../Atoms/Button";
 
 const Message = () => {
   return (
@@ -17,9 +18,15 @@ const Message = () => {
             Lorem ipsum dolor sit amet consectetur. Vitae arcu elementum
             elementum habitant amet pulvinar semper.
           </p>
-          <button className="w-[132px] rounded-lg bg-white text-neutral900 text-type-s md:text-type-m py-2 px-4 mx-auto md:mx-0 hover:bg-neutral-950 hover:text-white">
-            <NavLink to="/contactus">Contact Now</NavLink>
-          </button>
+          <div className="mx-auto md:mx-0">
+            <Button
+              children={<NavLink to="/contactus">Contact Now</NavLink>}
+              onClick={(): void => {}}
+              colour={"neutral900"}
+              hColour={"neutral30"}
+              hBgColor={"primary300"}
+            />
+          </div>
         </div>
       </div>
     </div>

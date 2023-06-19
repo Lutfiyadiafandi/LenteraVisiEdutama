@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Self from "../../assets/svg/Layanan-Self.svg";
 import Love from "../../assets/svg/Layanan-Love.svg";
 import Team from "../../assets/svg/Layanan-Team.svg";
 import Icon from "../../assets/svg/Layanan-Icon.svg";
 import Pray from "../../assets/svg/Layanan-Pray.svg";
+import FormModal from "./FormModal";
+import Button from "../Atoms/Button";
 
 const ServiceList = () => {
+  const [showModal, setShowModal] = useState(false);
   const service = [
     {
       id: 1,
@@ -71,9 +74,12 @@ const ServiceList = () => {
         </h2>
       </div>
 
-      <div className="flex justify-between xxl:justify-normal flex-wrap gap-x-5 xxl:gap-x-[125px] gap-y-10 xl:gap-y-20">
+      <div className="flex justify-between lg:justify-normal flex-wrap gap-x-5 lg:gap-x-24 xxl:gap-x-[125px] gap-y-10 xl:gap-y-20">
         {service.map((service) => (
-          <div className="w-[330px] flex flex-col justify-between gap-4 py-5 px-4 border-2 border-gradient rounded-2xl mx-auto xl:mx-0">
+          <div
+            key={service.id}
+            className="w-[330px] flex flex-col justify-between gap-4 py-5 px-4 border-2 border-gradient rounded-2xl mx-auto xl:mx-0"
+          >
             <div className="flex flex-col items-center gap-5 md:gap-8">
               <div className="img w-[112px]">
                 <img src={service.logo} />
@@ -104,10 +110,19 @@ const ServiceList = () => {
               </div>
             </div>
             <div className="w-full">
-              <button className="w-full text-type-m font-medium text-neutral900 border border-gradient py-2 mx-auto rounded-lg hover:bg-primary300 hover:text-neutral30 cursor-pointer">
-                Book Now
-              </button>
+              <Button
+                children={"Book Now"}
+                onClick={() => setShowModal(true)}
+                size="full"
+                colour={"neutral900"}
+                hColour={"neutral30"}
+                hBgColor={"primary300"}
+              />
             </div>
+            <FormModal
+              isVisible={showModal}
+              onClose={() => setShowModal(false)}
+            />
           </div>
         ))}
       </div>

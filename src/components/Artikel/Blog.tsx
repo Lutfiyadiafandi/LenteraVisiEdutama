@@ -1,7 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import ArtikelBlog from "../../assets/img/Img-ArtikelBlog.png";
+import Button from "../Atoms/Button";
 
 const Blog = () => {
+  const navigate = useNavigate();
+  const navigateToContent = () => {
+    navigate("/artikelcontent");
+  };
   const blogs = [
     {
       id: 1,
@@ -33,7 +39,10 @@ const Blog = () => {
       </h2>
       <div className="w-full flex flex-col md:flex-row gap-5 py-4">
         {blogs.map((blog) => (
-          <div className="max-w-[400px] h-fit flex flex-col gap-4 p-4 border-[1px] border-neutral30 rounded-2xl cursor-pointer">
+          <div
+            key={blog.id}
+            className="max-w-[400px] h-fit flex flex-col gap-4 p-4 border-[1px] border-neutral30 rounded-2xl cursor-pointer"
+          >
             <div>
               <img src={blog.img} />
             </div>
@@ -46,9 +55,14 @@ const Blog = () => {
               </p>
             </div>
             <div>
-              <button className="w-full flex justify-center items-center py-2 text-type-s md:text-type-m font-medium text-neutral900 border-[1px] border-gradient rounded-lg cursor-pointer hover:bg-primary300 hover:text-neutral30">
-                Read More
-              </button>
+              <Button
+                children={"Read More"}
+                onClick={() => navigateToContent()}
+                size="full"
+                colour={"neutral900"}
+                hColour={"neutral30"}
+                hBgColor={"primary300"}
+              />
             </div>
           </div>
         ))}

@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../Atoms/Button";
 
 const Bundling = () => {
   const bundle = [
@@ -39,9 +40,12 @@ const Bundling = () => {
         </h2>
       </div>
 
-      <div className="flex flex-wrap justify-between gap-10">
+      <div className="flex flex-wrap lg:flex-nowrap justify-between gap-10">
         {bundle.map((bundle) => (
-          <div className="w-[600px] flex flex-col gap-3 md:gap-4 p-3 md:p-5 bg-gradient-to-r from-gradient to-primary200 rounded-2xl mx-auto">
+          <div
+            key={bundle.id}
+            className="w-[600px] flex flex-col gap-3 md:gap-4 p-3 md:p-5 bg-gradient-to-r from-gradient to-primary200 rounded-2xl mx-auto"
+          >
             <div className="flex flex-col gap-[10px] p-3 md:p-5 rounded bg-primary300 text-neutral0">
               <h4 className="text-type-l md:text-heading-s font-semibold">
                 {bundle.title}
@@ -71,10 +75,17 @@ const Bundling = () => {
                 <p className="text-type-l font-semibold">{bundle.priceDisc}</p>
               </div>
             </div>
-            <div className="w-full bg-neutral0 rounded-lg">
-              <button className="w-full text-type-m font-medium text-neutral900 border border-gradient py-2 mx-auto rounded-lg hover:bg-primary300 hover:text-neutral30 cursor-pointer">
-                Book Now
-              </button>
+            <div className="w-full rounded-lg">
+              <Button
+                children={"Book Now"}
+                onClick={function (): void {
+                  console.log("button is ok");
+                }}
+                size="full"
+                colour={"neutral900"}
+                hColour={"neutral30"}
+                hBgColor={"primary300"}
+              />
             </div>
           </div>
         ))}

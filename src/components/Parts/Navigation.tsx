@@ -35,7 +35,7 @@ const Navigation = () => {
     },
   ];
   return (
-    <header className="w-full shadow-md">
+    <header className="w-full navShadow">
       <div className="max-w-screen-xl mx-auto px-4 xxl:px-0">
         <div className="flex justify-between items-center py-5 px-2">
           <div>
