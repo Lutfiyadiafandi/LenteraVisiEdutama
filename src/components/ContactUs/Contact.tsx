@@ -1,15 +1,9 @@
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 import Button from "../Atoms/Button";
+import InputField from "../Atoms/InputField";
+import IconBtn from "../Atoms/IconBtn";
 
-const Icons = () => {
-  return (
-    <div className="flex justify-center">
-      Submit
-      <FaArrowRight className="ml-1 text-neutral900 group-hover:text-neutral30" />
-    </div>
-  );
-};
 const Contact = () => {
   return (
     <section className="w-full mx-auto">
@@ -33,52 +27,25 @@ const Contact = () => {
             action=""
             className="flex flex-col items-center gap-5 w-4/5 md:w-3/4 py-20 mx-auto"
           >
-            <div className="w-full flex flex-col gap-2">
-              <label
-                htmlFor="nama"
-                className="text-type-m font-normal text-neutral0"
-              >
-                Nama
-              </label>
-              <input
-                type="text"
-                name="nama"
-                placeholder="Nama anda"
-                className="py-2 px-4 rounded-md text-type-m text-neutral900"
-              />
-            </div>
-            <div className="w-full flex flex-col  gap-2">
-              <label
-                htmlFor="email"
-                className="text-type-m font-normal text-neutral0"
-              >
-                Email Address
-              </label>
-              <input
-                type="text"
-                name="email"
-                placeholder="Email anda"
-                className="py-2 px-4 rounded-md text-type-m text-neutral900"
-              />
-            </div>
-            <div className="w-full flex flex-col  gap-2">
-              <label
-                htmlFor="pesan"
-                className="text-type-m font-normal text-neutral0"
-              >
-                Pesan
-              </label>
-              <textarea
-                name="message"
-                placeholder="Tulis pesan anda disini"
-                rows={5}
-                className="py-2 px-4 rounded-md text-type-m text-neutral900"
-              ></textarea>
-            </div>
-
+            <InputField
+              label={"Nama"}
+              placeholder={"Nama anda"}
+              color={"neutral0"}
+            />
+            <InputField
+              label={"Email"}
+              placeholder={"Email anda"}
+              color={"neutral0"}
+            />
+            <InputField
+              variant={"area"}
+              label={"Pesan"}
+              placeholder={"Tulis Pesan anda disini"}
+              color={"neutral0"}
+            />
             <div className="w-full">
               <Button
-                children={Icons()}
+                children={<IconBtn title={"Submit"} />}
                 onClick={() => console.log("test")}
                 size="full"
                 colour={"neutral900"}

@@ -93,9 +93,7 @@ const ArtikelList = () => {
 
         <Button
           children={"Search"}
-          onClick={function (): void {
-            throw new Error("Function not implemented.");
-          }}
+          onClick={() => console.log("search")}
           colour={"neutral900"}
           hColour={"neutral30"}
           hBgColor={"primary300"}

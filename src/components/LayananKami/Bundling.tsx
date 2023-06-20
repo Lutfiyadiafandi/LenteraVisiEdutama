@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../Atoms/Button";
+import FormModal from "./FormModal";
 
 const Bundling = () => {
+  const [showModal, setShowModal] = useState(false);
   const bundle = [
     {
       id: 1,
@@ -78,15 +80,17 @@ const Bundling = () => {
             <div className="w-full rounded-lg">
               <Button
                 children={"Book Now"}
-                onClick={function (): void {
-                  console.log("button is ok");
-                }}
+                onClick={() => setShowModal(true)}
                 size="full"
                 colour={"neutral900"}
                 hColour={"neutral30"}
                 hBgColor={"primary300"}
               />
             </div>
+            <FormModal
+              isVisible={showModal}
+              onClose={() => setShowModal(false)}
+            />
           </div>
         ))}
       </div>
