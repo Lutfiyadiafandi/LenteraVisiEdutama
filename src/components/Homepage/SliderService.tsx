@@ -4,6 +4,7 @@ import Team from "../../assets/svg/Layanan-Team.svg";
 import Icon from "../../assets/svg/Layanan-Icon.svg";
 import Pray from "../../assets/svg/Layanan-Pray.svg";
 
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 
@@ -39,11 +40,19 @@ const SliderService = () => {
   ];
   return (
     <div className="w-full h-[320px] flex items-center justify-between py-10">
+      <FaAngleLeft
+        color="#010D23"
+        className="cursor-pointer text-8xl md:text-display1 lg:text-heading-l review-swiper-button-prev"
+      />
+
       <Swiper
         modules={[Navigation]}
         spaceBetween={0}
         slidesPerView={1}
-        navigation={true}
+        navigation={{
+          nextEl: ".review-swiper-button-next",
+          prevEl: ".review-swiper-button-prev",
+        }}
         breakpoints={{
           600: {
             slidesPerView: 2,
@@ -53,19 +62,20 @@ const SliderService = () => {
             slidesPerView: 3,
             spaceBetween: 0,
           },
-          1180: {
+          1280: {
             slidesPerView: 4,
-            spaceBetween: 20,
+            spaceBetween: 0,
           },
         }}
+        loop={true}
       >
         {servs.map((serv) => (
           <SwiperSlide key={serv.id}>
-            <div className="flex justify-center">
-              <div className="w-[295px] h-[234px] bg-neutral0 items-center justify-center flex rounded-2xl border-2 border-gradient cursor-pointer group hover:bg-primary300">
-                <div className="mx-4 my-5 flex flex-col justify-center items-center">
+            <div className="flex justify-evenly">
+              <div className="h-[234px] bg-neutral0 items-center justify-center flex rounded-2xl border-2 border-gradient cursor-pointer">
+                <div className="w-[250px] flex flex-col items-center justify-center mx-4 my-5">
                   <img src={serv.logo} className="w-[112px]" />
-                  <p className="text-type-l font-medium text-primary300 pt-6 text-center group-hover:text-neutral0">
+                  <p className="pt-6 font-medium text-center text-type-l text-primary300">
                     {serv.title}
                   </p>
                 </div>
@@ -74,6 +84,10 @@ const SliderService = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+      <FaAngleRight
+        color="#010D23"
+        className="cursor-pointer text-8xl md:text-display1 lg:text-heading-l review-swiper-button-next"
+      />
     </div>
   );
 };

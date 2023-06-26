@@ -74,9 +74,9 @@ const ArtikelList = () => {
     setPageNumber(selected);
   };
   return (
-    <section className="max-w-screen-xl mx-auto px-4 xxl:px-0">
-      <div className="mt-10 md:mt-24 mb-8 md:mb-14">
-        <h2 className="text-heading-m md:text-heading-xl font-semibold text-neutral800">
+    <section className="max-w-screen-xl px-4 mx-auto md:px-5 xxl:px-0">
+      <div className="mt-10 mb-8 md:mt-24 md:mb-14">
+        <h2 className="font-semibold text-heading-m md:text-heading-xl text-neutral800">
           Artikel
         </h2>
       </div>
@@ -102,7 +102,7 @@ const ArtikelList = () => {
       {/* ARTIKEL LIST */}
       <div className="pt-[22px] flex flex-col gap-4">{displayArtikels}</div>
       {/* PAGINATION */}
-      <div className="w-full flex justify-end">
+      <div className="flex justify-end w-full">
         <ReactPaginate
           previousLabel="&laquo;"
           nextLabel="&raquo;"

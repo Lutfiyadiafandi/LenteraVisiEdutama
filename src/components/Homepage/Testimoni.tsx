@@ -1,8 +1,9 @@
 import React from "react";
 import Men from "../../assets/img/Img-Testimoni.png";
 import Women from "../../assets/img/Img-Testimoni2.png";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
+import { Navigation, Pagination } from "swiper";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -23,20 +24,21 @@ const Testimoni = () => {
     },
   ];
   return (
-    <section className="max-w-screen-xl mx-auto px-4 xxl:px-0 mt-[100px] md:mt-[120px]">
+    <section className="max-w-screen-xl mx-auto px-4 md:px-5 xxl:px-0 mt-[100px] md:mt-[120px]">
       <div className="flex flex-wrap">
-        <h2 className="text-heading-m md:text-heading-xl font-semibold text-neutral800">
+        <h2 className="font-semibold text-heading-m md:text-heading-xl text-neutral800">
           Testimoni
         </h2>
-        <div className="w-full lg:w-4/5 mx-auto py-10">
+        <div className="w-full py-10 mx-auto lg:w-4/5">
           <Swiper
+            modules={[Navigation]}
             slidesPerView={"auto"}
             centeredSlides={true}
             spaceBetween={30}
-            pagination={{
-              dynamicBullets: true,
+            navigation={{
+              nextEl: ".review-swiper-button-next",
+              prevEl: ".review-swiper-button-prev",
             }}
-            modules={[Pagination]}
             className="mySwiper"
           >
             {testi.map((testi) => (
@@ -46,10 +48,10 @@ const Testimoni = () => {
                     <img src={testi.image} />
                   </div>
                   <div className="grow">
-                    <h4 className="text-heading-s md:text-heading-m text-neutral900 font-medium text-center md:text-left">
+                    <h4 className="font-medium text-center text-heading-s md:text-heading-m text-neutral900 md:text-left">
                       {testi.name}
                     </h4>
-                    <p className="text-type-m md:text-type-l font-normal text-neutral500 pt-2">
+                    <p className="pt-2 font-normal text-type-m md:text-type-l text-neutral500">
                       {testi.desc}
                     </p>
                   </div>
@@ -57,6 +59,16 @@ const Testimoni = () => {
               </SwiperSlide>
             ))}
           </Swiper>
+          <div className="flex justify-between md:justify-normal md:gap-[100px] lg:ml-[50px] xxl:ml-[87px] mt-5">
+            <FaAngleLeft
+              color="#1E739A"
+              className="cursor-pointer text-heading-l review-swiper-button-prev"
+            />
+            <FaAngleRight
+              color="#1E739A"
+              className="cursor-pointer text-heading-l review-swiper-button-next"
+            />
+          </div>
         </div>
       </div>
     </section>

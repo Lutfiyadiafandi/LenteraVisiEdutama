@@ -5,8 +5,6 @@ import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navigation = () => {
   const [nav, setNav] = useState(false);
-  const iconColor = "#12465E";
-  const iconColor2 = "#A3C6D6";
   const navs = [
     {
       id: 1,
@@ -36,8 +34,8 @@ const Navigation = () => {
   ];
   return (
     <header className="w-full navShadow">
-      <div className="max-w-screen-xl mx-auto px-4 xxl:px-0">
-        <div className="flex justify-between items-center py-5 px-2">
+      <div className="max-w-screen-xl px-4 mx-auto md:px-5 xxl:px-0">
+        <div className="relative items-center justify-between px-2 py-5 sm:flex">
           <div>
             <img src={Logo} className="w-10 md:w-14 xl:w-20" />
           </div>
@@ -46,7 +44,7 @@ const Navigation = () => {
               {navs.map((nav) => (
                 <li
                   key={nav.id}
-                  className="pl-6 cursor-pointer capitalize font-medium text-type-m text-primary500 hover:text-primary200 active:text-primary200 active:font-semibold"
+                  className="ml-6 font-medium capitalize cursor-pointer text-type-m text-primary500 hover:text-primary200 active:text-primary200 active:font-semibold"
                 >
                   <NavLink to={nav.path}>{nav.link}</NavLink>
                 </li>
@@ -56,28 +54,30 @@ const Navigation = () => {
 
           <div
             onClick={() => setNav(!nav)}
-            className="cursor-pointer text-primary500 sm:hidden rounded-md z-50"
+            className="absolute z-50 rounded-md cursor-pointer right-2 top-6 text-primary500 sm:hidden"
           >
             {nav ? (
-              <FaTimes size={30} color={iconColor2} />
+              <FaTimes size={30} color="#12465E" />
             ) : (
-              <FaBars size={30} color={iconColor} />
+              <FaBars size={30} color="#12465E" />
             )}
           </div>
 
           {nav && (
-            <ul className="flex flex-col items-start px-10 w-3/4 h-screen absolute top-0 right-0 bg-primary500 pt-20 z-40">
-              {navs.map((nav) => (
-                <li
-                  key={nav.id}
-                  className="py-3 cursor-pointer capitalize font-medium text-type-l  text-primary50 hover:text-primary300"
-                >
-                  <NavLink onClick={() => setNav(!nav)} to={nav.path}>
-                    {nav.link}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
+            <div className="sm:hidden">
+              <ul className="flex flex-col items-start w-full gap-2 px-2 mt-5 ">
+                {navs.map((nav) => (
+                  <li
+                    key={nav.id}
+                    className="w-full py-1 font-semibold capitalize cursor-pointer text-type-l text-primary500 hover:text-primary200"
+                  >
+                    <NavLink onClick={() => setNav(!nav)} to={nav.path}>
+                      {nav.link}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
         </div>
       </div>

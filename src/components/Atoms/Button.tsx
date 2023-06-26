@@ -19,7 +19,7 @@ const Button = ({
 }: Props) => {
   return (
     <button
-      className={`w-${size} text-type-m font-medium text-${colour} bg-neutral0 border border-gradient py-2 px-4 mx-auto rounded-lg hover:bg-${hBgColor} hover:text-${hColour} focus:outline-none cursor-pointer group`}
+      className={`w-${size} text-type-m font-medium text-${colour} bg-neutral0 border border-gradient py-2 px-4 mx-auto rounded-lg hover:bg-${hBgColor} hover:${hColour} focus:outline-none cursor-pointer group`}
       onClick={onClick}
     >
       {children}

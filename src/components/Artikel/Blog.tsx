@@ -33,24 +33,24 @@ const Blog = () => {
     },
   ];
   return (
-    <section className="max-w-screen-xl mx-auto px-4 xxl:px-0 mt-[50px] md:mt-[112px]">
-      <h2 className="text-heading-s md:text-heading-m font-normal text-neutral800">
+    <section className="max-w-screen-xl mx-auto px-4 md:px-5 xxl:px-0 mt-[50px] md:mt-[112px]">
+      <h2 className="font-normal text-heading-s md:text-heading-m text-neutral800">
         Artikel Lainnya
       </h2>
-      <div className="w-full flex flex-col md:flex-row gap-5 py-4">
+      <div className="flex flex-col w-full gap-5 py-4 md:flex-row">
         {blogs.map((blog) => (
           <div
             key={blog.id}
-            className="max-w-[400px] h-fit flex flex-col gap-4 p-4 border-[1px] border-neutral30 rounded-2xl cursor-pointer"
+            className="max-w-[400px] flex flex-col justify-between gap-4 p-4 border border-neutral30 rounded-2xl cursor-pointer"
           >
             <div>
               <img src={blog.img} />
             </div>
             <div className="flex flex-col gap-4">
-              <h3 className="text-type-m md:text-type-l font-medium text-neutral900">
+              <h3 className="font-medium text-type-m md:text-type-l text-neutral900">
                 {blog.title}
               </h3>
-              <p className="text-type-s md:text-type-m font-normal text-neutral500">
+              <p className="font-normal text-type-s md:text-type-m text-neutral500">
                 {blog.desc}
               </p>
             </div>

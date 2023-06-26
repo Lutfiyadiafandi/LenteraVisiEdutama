@@ -33,20 +33,20 @@ const Footer = () => {
   ];
   return (
     <footer className="w-full fotShadow">
-      <div className="max-w-screen-xl mx-auto px-4 xxl:px-0">
-        <div className="flex flex-col md:flex-row justify-between md:items-center gap-10 pt-10 pb-16 px-10 md:px-0">
+      <div className="max-w-screen-xl px-4 mx-auto md:px-5 xxl:px-0">
+        <div className="flex flex-col justify-between gap-10 px-10 pt-10 pb-16 md:flex-row md:items-center md:px-0">
           <div>
             <img src={Logo} className="w-8 md:w-10" />
-            <p className="text-label-l font-medium text-neutral800 pt-4">
+            <p className="pt-4 font-medium text-label-l text-neutral800">
               &copy;Copyright 2023 Lentera Visi Edutama
             </p>
           </div>
           <div className="md:w-[305px]">
-            <ul className="flex flex-col md:flex-row flex-wrap gap-x-6 gap-y-2 md:gap-y-4">
+            <ul className="flex flex-col flex-wrap md:flex-row gap-x-6 gap-y-2 md:gap-y-4">
               {navs.map((nav) => (
                 <li
                   key={nav.id}
-                  className="cursor-pointer capitalize font-normal text-type-m text-neutral800 hover:text-neutral100"
+                  className="font-normal capitalize cursor-pointer text-type-m text-neutral800 hover:text-neutral100"
                 >
                   <NavLink to={nav.path}>{nav.link}</NavLink>
                 </li>
@@ -54,7 +54,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <p className="text-label-l font-normal text-neutral200">
+            <p className="font-normal text-label-l text-neutral200">
               Collaboration with
             </p>
             <div className="flex items-center">

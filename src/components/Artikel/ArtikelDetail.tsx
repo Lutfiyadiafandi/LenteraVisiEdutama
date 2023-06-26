@@ -4,15 +4,15 @@ import ArtikelImg from "../../assets/img/Img-ArtikelBanner.png";
 
 const ArtikelDetail = (props: any) => {
   return (
-    <section className="max-w-screen-xl mx-auto px-4 xxl:px-0">
+    <section className="max-w-screen-xl px-4 mx-auto md:px-5 xxl:px-0">
       <div className="w-full mt-8 md:mt-[74px]">
-        <img src={ArtikelImg} className="w-full object-cover rounded-2xl" />
+        <img src={ArtikelImg} className="object-cover w-full rounded-2xl" />
       </div>
 
-      <div className="w-full flex flex-col md:flex-row justify-between gap-2 mt-5">
-        <div className="w-full md:w-4/5 flex flex-col">
-          <p className="text-type-s font-medium text-neutral100">Artikel</p>
-          <h2 className="text-heading-s md:text-heading-l font-medium text-primary500">
+      <div className="flex flex-col justify-between w-full gap-2 mt-5 md:flex-row">
+        <div className="flex flex-col w-full md:w-4/5">
+          <p className="font-medium text-type-s text-neutral100">Artikel</p>
+          <h2 className="font-medium text-heading-s md:text-heading-l text-primary500">
             Pentingnya Team Work sebagai soft skill
           </h2>
         </div>
@@ -29,14 +29,14 @@ const ArtikelDetail = (props: any) => {
         </div>
       </div>
 
-      <div className="w-full md:w-4/5 flex flex-col pt-5 md:pt-10 gap-5 md:gap-10">
-        <p className="text-type-m md:text-type-l font-normal text-neutral500">
+      <div className="flex flex-col w-full gap-5 pt-5 md:w-4/5 md:pt-10 md:gap-10">
+        <p className="font-normal text-type-m md:text-type-l text-neutral500">
           Lorem ipsum dolor sit amet consectetur. Enim feugiat blandit vitae
           adipiscing felis scelerisque. Faucibus vulputate metus ipsum et justo.
           Nullam sed eu suscipit facilisi auctor augue. Condimentum vivamus
           elementum amet ultrices blandit etiam faucibus.
         </p>
-        <p className="text-type-m md:text-type-l font-normal text-neutral500">
+        <p className="font-normal text-type-m md:text-type-l text-neutral500">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa unde
           tempora impedit at porro illum nesciunt maxime dolores, a omnis itaque
           quas voluptatum, debitis totam perspiciatis consequatur excepturi
@@ -49,7 +49,7 @@ const ArtikelDetail = (props: any) => {
           sint ab iure numquam totam placeat veniam unde optio illum accusamus!
           Ullam, id optio?
         </p>
-        <p className="text-type-m md:text-type-l font-normal text-neutral500">
+        <p className="font-normal text-type-m md:text-type-l text-neutral500">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, earum
           eum ex praesentium placeat rem nulla debitis blanditiis in, maxime
           quas corrupti nemo nam, quis iusto modi. Iusto voluptatum dignissimos

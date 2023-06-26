@@ -35,46 +35,46 @@ const Bundling = () => {
     },
   ];
   return (
-    <section className="max-w-screen-xl mx-auto px-4 xxl:px-0 mt-[50px] md:mt-20 mb-10">
+    <section className="max-w-screen-xl mx-auto px-4 md:px-5 xxl:px-0 mt-[50px] md:mt-20 mb-10">
       <div className="mb-5 md:mb-10">
-        <h2 className="text-heading-m md:text-heading-xl font-semibold text-neutral800">
+        <h2 className="font-semibold text-heading-m md:text-heading-xl text-neutral800">
           Bundling
         </h2>
       </div>
 
-      <div className="flex flex-wrap lg:flex-nowrap justify-between gap-10">
+      <div className="flex flex-wrap justify-between gap-10 lg:flex-nowrap">
         {bundle.map((bundle) => (
           <div
             key={bundle.id}
             className="w-[600px] flex flex-col gap-3 md:gap-4 p-3 md:p-5 bg-gradient-to-r from-gradient to-primary200 rounded-2xl mx-auto"
           >
             <div className="flex flex-col gap-[10px] p-3 md:p-5 rounded bg-primary300 text-neutral0">
-              <h4 className="text-type-l md:text-heading-s font-semibold">
+              <h4 className="font-semibold text-type-l md:text-heading-s">
                 {bundle.title}
               </h4>
-              <h5 className="text-type-m md:text-type-l font-medium">
+              <h5 className="font-medium text-type-m md:text-type-l">
                 {bundle.desc}
               </h5>
               <ul className="pl-4">
-                <li className="list-disc text-type-s md:text-type-m font-medium">
+                <li className="font-medium list-disc text-type-s md:text-type-m">
                   {bundle.item.item1}
                 </li>
-                <li className="list-disc text-type-s md:text-type-m font-medium">
+                <li className="font-medium list-disc text-type-s md:text-type-m">
                   {bundle.item.item2}
                 </li>
-                <li className="list-disc text-type-s md:text-type-m font-medium">
+                <li className="font-medium list-disc text-type-s md:text-type-m">
                   {bundle.item.item3}
                 </li>
-                <li className="list-disc text-type-s md:text-type-m font-medium">
+                <li className="font-medium list-disc text-type-s md:text-type-m">
                   {bundle.item.item4}
                 </li>
               </ul>
 
               <div className="flex flex-col items-center">
-                <p className="text-type-m font-medium">
+                <p className="font-medium text-type-m">
                   <s>{bundle.price}</s>
                 </p>
-                <p className="text-type-l font-semibold">{bundle.priceDisc}</p>
+                <p className="font-semibold text-type-l">{bundle.priceDisc}</p>
               </div>
             </div>
             <div className="w-full rounded-lg">
