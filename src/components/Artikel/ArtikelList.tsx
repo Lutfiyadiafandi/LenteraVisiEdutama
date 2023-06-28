@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
-import { FaSearch, FaAngleDoubleLeft } from "react-icons/fa";
+
 import ImgArtikel from "../../assets/img/Img-Artikel.png";
 import ImgArtikel2 from "../../assets/img/Img-Artikel2.png";
 import ImgArtikel3 from "../../assets/img/Img-Artikel3.png";
 import ImgArtikel4 from "../../assets/img/Img-Artikel4.png";
 import ImgArtikel5 from "../../assets/img/Img-Artikel5.png";
-import Icon from "../../assets/svg/Icon.svg";
 
 import ArtikelComp from "./ArtikelComp";
-import Button from "../Atoms/Button";
+import Search from "./Search";
 
 const ArtikelList = () => {
   const blogs = [
@@ -80,40 +79,22 @@ const ArtikelList = () => {
           Artikel
         </h2>
       </div>
-      {/* SEARCH */}
-      <div className="w-full md:w-1/2 flex justify-between items-center gap-2 md:gap-4 border-[1px] border-neutral30 rounded-md p-[10px]">
-        <FaSearch size={30} color="#1E739A" />
-        <input
-          type="search"
-          name="search"
-          onChange={handleSearch}
-          placeholder="Search here..."
-          className="w-full py-[10px] px-2 text-type-s md:text-type-m font-normal text-neutral900 focus:outline-gradient"
-        />
-
-        <Button
-          children={"Search"}
-          onClick={() => console.log("search")}
-          colour={"neutral900"}
-          hColour={"neutral30"}
-          hBgColor={"primary300"}
-        />
-      </div>
-      {/* ARTIKEL LIST */}
-      <div className="pt-[22px] flex flex-col gap-4">{displayArtikels}</div>
-      {/* PAGINATION */}
-      <div className="flex justify-end w-full">
-        <ReactPaginate
-          previousLabel="&laquo;"
-          nextLabel="&raquo;"
-          onPageChange={changePage}
-          pageCount={pageCount}
-          containerClassName="paginationBtn"
-          nextClassName="nextBtn"
-          previousClassName="prevBtn"
-          disabledClassName="disabledBtn"
-          activeClassName="activeBtn"
-        />
+      <div>
+        <Search find={handleSearch} />
+        <div className="pt-[22px] flex flex-col gap-4">{displayArtikels}</div>
+        <div className="flex justify-end w-full">
+          <ReactPaginate
+            previousLabel="&laquo;"
+            nextLabel="&raquo;"
+            onPageChange={changePage}
+            pageCount={pageCount}
+            containerClassName="paginationBtn"
+            nextClassName="nextBtn"
+            previousClassName="prevBtn"
+            disabledClassName="disabledBtn"
+            activeClassName="activeBtn"
+          />
+        </div>
       </div>
     </section>
   );

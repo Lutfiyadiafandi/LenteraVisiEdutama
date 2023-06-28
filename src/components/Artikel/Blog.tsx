@@ -34,8 +34,8 @@ const Blog = () => {
   ];
   return (
     <section className="max-w-screen-xl mx-auto px-4 md:px-5 xxl:px-0 mt-[50px] md:mt-[112px]">
-      <h2 className="font-normal text-heading-s md:text-heading-m text-neutral800">
-        Artikel Lainnya
+      <h2 className="font-semibold text-heading-m md:text-heading-xl text-neutral800">
+        Artikel
       </h2>
       <div className="flex flex-col w-full gap-5 py-4 md:flex-row">
         {blogs.map((blog) => (
@@ -67,6 +67,9 @@ const Blog = () => {
           </div>
         ))}
       </div>
+      <h5 className="font-semibold text-right text-heading-s md:text-heading-m text-neutral800">
+        <a href="/artikel">View All</a>
+      </h5>
     </section>
   );
 };

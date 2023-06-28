@@ -1,17 +1,17 @@
 import Navigation from "../components/Parts/Navigation";
 import Footer from "../components/Parts/Footer";
-import ArtikelDetail from "../components/Artikel/ArtikelDetail";
+import ArtikelContent from "../components/Artikel/ArtikelContent";
 import Blog from "../components/Artikel/Blog";
 
-function ArtikelContent() {
+function Artikel_Details() {
   return (
     <>
       <Navigation />
-      <ArtikelDetail />
+      <ArtikelContent />
       <Blog />
       <Footer />
     </>
   );
 }
 
-export default ArtikelContent;
+export default Artikel_Details;

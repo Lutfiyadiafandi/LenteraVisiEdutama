@@ -4,11 +4,9 @@ import Love from "../../assets/svg/Layanan-Love.svg";
 import Team from "../../assets/svg/Layanan-Team.svg";
 import Icon from "../../assets/svg/Layanan-Icon.svg";
 import Pray from "../../assets/svg/Layanan-Pray.svg";
-import FormModal from "./FormModal";
-import Button from "../Atoms/Button";
+import ProductComp from "./ProductComp";
 
 const ServiceList = () => {
-  const [showModal, setShowModal] = useState(false);
   const service = [
     {
       id: 1,
@@ -76,54 +74,16 @@ const ServiceList = () => {
 
       <div className="flex justify-between lg:justify-normal flex-wrap gap-x-5 lg:gap-x-24 xxl:gap-x-[125px] gap-y-10 xl:gap-y-20">
         {service.map((service) => (
-          <div
-            key={service.id}
-            className="w-[330px] flex flex-col justify-between gap-4 py-5 px-4 border-2 border-gradient rounded-2xl mx-auto xl:mx-0"
-          >
-            <div className="flex flex-col items-center gap-5 md:gap-8">
-              <div className="img w-[112px]">
-                <img src={service.logo} />
-              </div>
-              <div className="flex flex-col items-center gap-2 text-center">
-                <h4 className="font-medium text-type-l text-primary300">
-                  {service.title}
-                </h4>
-                <div className="flex items-center gap-2">
-                  <p className="p-2 font-medium rounded-md text-type-s text-primary500 bg-primary75">
-                    {service.doctor}
-                  </p>
-                  <p className="font-normal text-type-s text-neutral800">
-                    {service.time}
-                  </p>
-                </div>
-                <p className="font-normal text-type-s text-neutral800">
-                  {service.loc}
-                </p>
-                <div className="harga">
-                  <p className="font-medium text-type-m text-neutral500">
-                    <s>{service.price}</s>
-                  </p>
-                  <p className="font-semibold text-transparent text-type-l bg-clip-text bg-gradient-to-r from-gradient to-primary300">
-                    {service.priceDisc}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="w-full">
-              <Button
-                children={"Book Now"}
-                onClick={() => setShowModal(true)}
-                size="full"
-                colour={"neutral900"}
-                hColour={"neutral30"}
-                hBgColor={"primary300"}
-              />
-            </div>
-            <FormModal
-              isVisible={showModal}
-              onClose={() => setShowModal(false)}
-            />
-          </div>
+          <ProductComp
+            id={service.id}
+            logo={service.logo}
+            title={service.title}
+            doctor={service.doctor}
+            time={service.time}
+            loc={service.loc}
+            price={service.price}
+            priceDisc={service.priceDisc}
+          />
         ))}
       </div>
     </section>

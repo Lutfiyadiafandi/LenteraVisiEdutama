@@ -2,7 +2,7 @@ import React from "react";
 import { FaFacebook, FaPinterest, FaTwitter, FaWhatsapp } from "react-icons/fa";
 import ArtikelImg from "../../assets/img/Img-ArtikelBanner.png";
 
-const ArtikelDetail = (props: any) => {
+const ArtikelContent = (props: any) => {
   return (
     <section className="max-w-screen-xl px-4 mx-auto md:px-5 xxl:px-0">
       <div className="w-full mt-8 md:mt-[74px]">
@@ -73,4 +73,4 @@ const ArtikelDetail = (props: any) => {
   );
 };
 
-export default ArtikelDetail;
+export default ArtikelContent;

@@ -4,7 +4,8 @@ import TentangKami from "./pages/TentangKami";
 import LayananKami from "./pages/LayananKami";
 import Artikel from "./pages/Artikel";
 import ContactUs from "./pages/ContactUs";
-import ArtikelContent from "./pages/ArtikelContent";
+import Artikel_Details from "./pages/Artikel_Details";
+import LayananKami_ProductDetails from "./pages/LayananKami_ProductDetails";
 
 export default function App() {
   return (
@@ -15,8 +16,12 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/tentangkami" element={<TentangKami />} />
           <Route path="/layanankami" element={<LayananKami />} />
+          <Route
+            path="/layanankami_productdetails"
+            element={<LayananKami_ProductDetails />}
+          />
           <Route path="/artikel" element={<Artikel />} />
-          <Route path="/artikelcontent" element={<ArtikelContent />} />
+          <Route path="/artikel_details" element={<Artikel_Details />} />
           <Route path="/contactus" element={<ContactUs />} />
         </Routes>
       </BrowserRouter>

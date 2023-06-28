@@ -47,6 +47,7 @@ const SliderService = () => {
 
       <Swiper
         modules={[Navigation]}
+        rewind={true}
         spaceBetween={0}
         slidesPerView={1}
         navigation={{
@@ -67,13 +68,13 @@ const SliderService = () => {
             spaceBetween: 0,
           },
         }}
-        loop={true}
+        // loop={true}
       >
         {servs.map((serv) => (
           <SwiperSlide key={serv.id}>
-            <div className="flex justify-evenly">
+            <div className="flex justify-center max-w-screen-xl gap-5">
               <div className="h-[234px] bg-neutral0 items-center justify-center flex rounded-2xl border-2 border-gradient cursor-pointer">
-                <div className="w-[250px] flex flex-col items-center justify-center mx-4 my-5">
+                <div className="w-[260px] flex flex-col items-center justify-center mx-3 md:mx-4 my-5">
                   <img src={serv.logo} className="w-[112px]" />
                   <p className="pt-6 font-medium text-center text-type-l text-primary300">
                     {serv.title}
