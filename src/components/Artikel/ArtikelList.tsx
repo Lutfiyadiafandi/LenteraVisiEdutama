@@ -66,10 +66,10 @@ const ArtikelList = () => {
     .map((artikel) => {
       return (
         <ArtikelComp
+          key={artikel.id}
           id={artikel.id}
           img={artikel.img}
           title={artikel.title}
-          key={artikel.id}
         />
       );
     });

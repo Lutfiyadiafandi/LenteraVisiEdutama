@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Button from "../Atoms/Button";
 import IconBtn from "../Atoms/IconBtn";
 
@@ -21,7 +20,7 @@ const Artikels = (props: any) => {
       <div className="flex-none">
         <Button
           children={<IconBtn title={"Read More"} />}
-          variant={"primary"}
+          variant={"secondary"}
           to={`/artikel_details/${props.id}`}
         />
       </div>

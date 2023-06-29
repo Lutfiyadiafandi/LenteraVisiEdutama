@@ -1,19 +1,67 @@
 import React from "react";
 import { FaFacebook, FaPinterest, FaTwitter, FaWhatsapp } from "react-icons/fa";
 import ArtikelImg from "../../assets/img/Img-ArtikelBanner.png";
+import ImgArtikel from "../../assets/img/Img-Artikel.png";
+import ImgArtikel2 from "../../assets/img/Img-Artikel2.png";
+import ImgArtikel3 from "../../assets/img/Img-Artikel3.png";
+import ImgArtikel4 from "../../assets/img/Img-Artikel4.png";
+import ImgArtikel5 from "../../assets/img/Img-Artikel5.png";
+import { useParams } from "react-router-dom";
 
-const ArtikelContent = (props: any) => {
+const ArtikelContent = () => {
+  const { id } = useParams();
+  const blogs = [
+    {
+      id: "1",
+      img: ImgArtikel,
+      title: "Pentingnya Team Work sebagai soft skill",
+      link: "",
+    },
+    {
+      id: "2",
+      img: ImgArtikel2,
+      title: "Komunikasi efektif adalah kunci kerjasama",
+      link: "",
+    },
+    {
+      id: "3",
+      img: ImgArtikel3,
+      title: "Tips menjalin relasi yang sukses",
+      link: "",
+    },
+    {
+      id: "4",
+      img: ImgArtikel4,
+      title: "Miliki sikap profesional untuk menjadi yang terbaik",
+      link: "",
+    },
+    {
+      id: "5",
+      img: ImgArtikel5,
+      title: "Kembangkan diri dengan bersosialisasi",
+      link: "",
+    },
+  ];
+
+  const blog = blogs.filter((blog) => blog.id == id);
+  const content = blog[0];
+  console.log(content);
   return (
     <section className="max-w-screen-xl px-4 mx-auto md:px-5 xxl:px-0">
       <div className="w-full mt-8 md:mt-[74px]">
-        <img src={ArtikelImg} className="object-cover w-full rounded-2xl" />
+        <img
+          src={content.img}
+          className="object-cover w-full xxl:w-[1237px] xl:h-[504px] aspect-video rounded-lg md:rounded-xl lg:rounded-2xl"
+        />
       </div>
 
       <div className="flex flex-col justify-between w-full gap-2 mt-5 md:flex-row">
         <div className="flex flex-col w-full md:w-4/5">
-          <p className="font-medium text-type-s text-neutral100">Artikel</p>
+          <p className="font-medium text-type-s text-neutral100">
+            Artikel {id}
+          </p>
           <h2 className="font-medium text-heading-s md:text-heading-l text-primary500">
-            Pentingnya Team Work sebagai soft skill
+            {content.title}
           </h2>
         </div>
         <div className="w-[100px] md:w-[156px]">
