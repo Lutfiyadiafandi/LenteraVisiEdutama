@@ -65,7 +65,12 @@ const ArtikelList = () => {
     .slice(pageVisited, pageVisited + artikelsPerPage)
     .map((artikel) => {
       return (
-        <ArtikelComp img={artikel.img} title={artikel.title} key={artikel.id} />
+        <ArtikelComp
+          id={artikel.id}
+          img={artikel.img}
+          title={artikel.title}
+          key={artikel.id}
+        />
       );
     });
 

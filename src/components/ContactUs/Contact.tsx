@@ -25,7 +25,7 @@ const Contact = () => {
         <div className="w-full mt-4 md:w-1/2 bg-neutral900">
           <form
             action=""
-            className="flex flex-col items-center w-4/5 gap-5 py-20 mx-auto md:w-3/4"
+            className="flex flex-col items-center w-4/5 gap-5 py-20 mx-auto xl:w-[520px]"
           >
             <InputField
               label={"Nama"}
@@ -43,14 +43,11 @@ const Contact = () => {
               placeholder={"Tulis Pesan anda disini"}
               color={"neutral0"}
             />
-            <div className="w-full hover:text-neutral30 hover:bg-neutral900">
+            <div className="w-full">
               <Button
                 children={<IconBtn title={"Submit"} />}
-                onClick={() => console.log("test")}
-                size="full"
-                colour="neutral900"
-                hColour="text-neutral30"
-                hBgColor="neutral900"
+                variant={"primary"}
+                to={""}
               />
             </div>
           </form>

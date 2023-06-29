@@ -3,7 +3,7 @@ import Men from "../../assets/img/Img-Testimoni.png";
 import Women from "../../assets/img/Img-Testimoni2.png";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper";
+import { Navigation } from "swiper";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -24,7 +24,11 @@ const Testimoni = () => {
     },
   ];
   return (
-    <section className="max-w-screen-xl mx-auto px-4 md:px-5 xxl:px-0 mt-[100px] md:mt-[120px]">
+    <section
+      // data-aos="fade-up-left"
+      // data-aos-duration="2000"
+      className="max-w-screen-xl mx-auto px-4 md:px-5 xxl:px-0 mt-[100px] md:mt-[120px]"
+    >
       <div className="flex flex-wrap">
         <h2 className="font-semibold text-heading-m md:text-heading-xl text-neutral800">
           Testimoni
@@ -33,8 +37,9 @@ const Testimoni = () => {
           <Swiper
             modules={[Navigation]}
             slidesPerView={"auto"}
+            rewind={true}
             centeredSlides={true}
-            spaceBetween={30}
+            spaceBetween={0}
             navigation={{
               nextEl: ".review-swiper-button-next",
               prevEl: ".review-swiper-button-prev",

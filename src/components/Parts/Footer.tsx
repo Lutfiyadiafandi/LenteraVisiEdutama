@@ -32,7 +32,11 @@ const Footer = () => {
     },
   ];
   return (
-    <footer className="w-full fotShadow">
+    <footer
+      // data-aos="fade-up"
+      // data-aos-duration="2000"
+      className="w-full fotShadow"
+    >
       <div className="max-w-screen-xl px-4 mx-auto md:px-5 xxl:px-0">
         <div className="flex flex-col justify-between gap-10 px-10 pt-10 pb-16 md:flex-row md:items-center md:px-0">
           <div>
@@ -41,7 +45,7 @@ const Footer = () => {
               &copy;Copyright 2023 Lentera Visi Edutama
             </p>
           </div>
-          <div className="md:w-[305px]">
+          <div className="md:w-[310px]">
             <ul className="flex flex-col flex-wrap md:flex-row gap-x-6 gap-y-2 md:gap-y-4">
               {navs.map((nav) => (
                 <li

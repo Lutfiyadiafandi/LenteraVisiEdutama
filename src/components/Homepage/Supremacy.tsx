@@ -1,3 +1,5 @@
+import React, { useEffect } from "react";
+
 const Supremacy = () => {
   const whys = [
     {
@@ -17,7 +19,11 @@ const Supremacy = () => {
     },
   ];
   return (
-    <section className="max-w-screen-xl mx-auto px-4 md:px-5 xxl:px-0 mt-[100px] md:pt-[242px]">
+    <section
+      // data-aos="fade-down"
+      // data-aos-duration="2000"
+      className="max-w-screen-xl mx-auto px-4 md:px-5 xxl:px-0 mt-[100px] md:pt-[242px]"
+    >
       <h2 className="font-semibold text-heading-m md:text-heading-xl text-neutral800">
         Kenapa Lentera Visi Edutama
       </h2>
@@ -25,6 +31,9 @@ const Supremacy = () => {
         {whys.map(({ id, title, desc }) => (
           <div
             key={id}
+            // data-aos="fade-left"
+            // data-aos-duration="2000"
+            // data-aos-delay="300"
             className="max-w-[350px] sm:max-w-[400px] flex gap-4 py-5 px-4 bg-primary500 rounded-2xl text-neutral0 mx-auto"
           >
             <div className="flex flex-none justify-center items-center w-[36px] h-[55px]  bg-primary200 rounded-lg p-2">

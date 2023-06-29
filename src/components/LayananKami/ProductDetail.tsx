@@ -52,11 +52,8 @@ const ProductDetail = () => {
                 />
                 <Button
                   children={<IconBtn title={"Submit"} />}
-                  onClick={() => console.log("test")}
-                  size="full mt-3"
-                  colour={"neutral900"}
-                  hColour={"neutral30"}
-                  hBgColor={"primary300"}
+                  variant={"primary"}
+                  to={``}
                 />
               </form>
             </div>

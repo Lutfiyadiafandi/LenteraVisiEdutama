@@ -1,12 +1,8 @@
 import React from "react";
 import Button from "../Atoms/Button";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ProductComp = (props: any) => {
-  const navigate = useNavigate();
-  const navigateToContent = () => {
-    navigate("/layanankami_productdetails");
-  };
   return (
     <div
       key={props.id}
@@ -42,11 +38,8 @@ const ProductComp = (props: any) => {
       <div className="w-full">
         <Button
           children={"Book Now"}
-          onClick={() => navigateToContent()}
-          size="full"
-          colour={"neutral900"}
-          hColour={"neutral30"}
-          hBgColor={"primary300"}
+          variant={"primary"}
+          to={`/layanankami_productdetails/${props.id}`}
         />
       </div>
     </div>

@@ -75,6 +75,7 @@ const ServiceList = () => {
       <div className="flex justify-between lg:justify-normal flex-wrap gap-x-5 lg:gap-x-24 xxl:gap-x-[125px] gap-y-10 xl:gap-y-20">
         {service.map((service) => (
           <ProductComp
+            key={service.id}
             id={service.id}
             logo={service.logo}
             title={service.title}

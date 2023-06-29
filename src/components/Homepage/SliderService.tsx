@@ -68,13 +68,17 @@ const SliderService = () => {
             spaceBetween: 0,
           },
         }}
-        // loop={true}
       >
         {servs.map((serv) => (
           <SwiperSlide key={serv.id}>
-            <div className="flex justify-center max-w-screen-xl gap-5">
+            <div
+              // data-aos="fade-right"
+              // data-aos-duration="2000"
+              // data-aos-delay="300"
+              className="flex justify-center max-w-screen-xl gap-5"
+            >
               <div className="h-[234px] bg-neutral0 items-center justify-center flex rounded-2xl border-2 border-gradient cursor-pointer">
-                <div className="w-[260px] flex flex-col items-center justify-center mx-3 md:mx-4 my-5">
+                <div className="w-[248px] md:w-[259px] flex flex-col items-center justify-center mx-3 md:mx-4 my-5">
                   <img src={serv.logo} className="w-[112px]" />
                   <p className="pt-6 font-medium text-center text-type-l text-primary300">
                     {serv.title}

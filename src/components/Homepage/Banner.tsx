@@ -1,9 +1,20 @@
+import React, { useEffect } from "react";
 import Hero from "../../assets/svg/Banner-Hero.svg";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Banner = () => {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   return (
     <section className="relative flex flex-col max-w-screen-xl px-4 mx-auto md:flex-row md:px-5 xxl:px-0">
-      <div className="flex flex-col mt-[20px] md:mt-[72px]">
+      <div
+        data-aos="fade-right"
+        data-aos-duration="2000"
+        className="flex flex-col mt-[20px] md:mt-[72px]"
+      >
         <div className="w-full mb-[15px]">
           <h2 className="font-semibold text-heading-m md:text-heading-xl text-neutral800">
             Bersama{" "}
@@ -27,7 +38,11 @@ const Banner = () => {
         </div>
       </div>
 
-      <div className="mt-[34px] order-first md:order-last">
+      <div
+        data-aos="fade-left"
+        data-aos-duration="2000"
+        className="mt-[34px] order-first md:order-last"
+      >
         <figure className="md:absolute md:top-32 xl:top-10 md:right-5 md:w-[393px] xl:w-[591.81px] mx-auto">
           <img src={Hero} alt="" className="w-full" />
         </figure>

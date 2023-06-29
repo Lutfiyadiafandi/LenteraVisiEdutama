@@ -3,7 +3,11 @@ import Grafis from "../../assets/svg/Grafis.svg";
 
 const Infografis = () => {
   return (
-    <section className="max-w-screen-xl mx-auto px-4 md:px-5 xxl:px-0 mt-[100px] md:mt-[162px] relative">
+    <section
+      // data-aos="fade-up-left"
+      // data-aos-duration="2000"
+      className="max-w-screen-xl mx-auto px-4 md:px-5 xxl:px-0 mt-[100px] md:mt-[162px] relative"
+    >
       <div className="flex flex-col items-center justify-center sm:flex-row">
         <div className="flex flex-col order-1 gap-5 md:w-2/5">
           <h2 className="font-semibold text-heading-m md:text-heading-xl text-neutral800">

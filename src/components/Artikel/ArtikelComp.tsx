@@ -1,13 +1,9 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Button from "../Atoms/Button";
 import IconBtn from "../Atoms/IconBtn";
 
 const Artikels = (props: any) => {
-  const navigate = useNavigate();
-  const navigateToContent = () => {
-    navigate("/artikel_details");
-  };
   return (
     <div className="w-full border-t-[1px] border-primary100 flex flex-col md:flex-row justify-between gap-2 md:gap-5 xxl:gap-10 pt-4">
       <div
@@ -25,10 +21,8 @@ const Artikels = (props: any) => {
       <div className="flex-none">
         <Button
           children={<IconBtn title={"Read More"} />}
-          onClick={() => navigateToContent()}
-          colour={"neutral900"}
-          hColour={"neutral30"}
-          hBgColor={"primary300"}
+          variant={"primary"}
+          to={`/artikel_details/${props.id}`}
         />
       </div>
     </div>

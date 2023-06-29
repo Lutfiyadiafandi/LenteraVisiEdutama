@@ -14,13 +14,7 @@ const Search = (props: any) => {
         className="w-full py-[10px] px-2 text-type-s md:text-type-m font-normal text-neutral900 focus:outline-gradient"
       />
 
-      <Button
-        children={"Search"}
-        onClick={() => console.log("search")}
-        colour={"neutral900"}
-        hColour={"neutral30"}
-        hBgColor={"primary300"}
-      />
+      <Button children={"Search"} variant={"secondary"} to={""} />
     </div>
   );
 };

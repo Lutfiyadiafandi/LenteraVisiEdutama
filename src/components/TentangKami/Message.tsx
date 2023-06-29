@@ -20,11 +20,9 @@ const Message = () => {
           </p>
           <div className="mx-auto md:mx-0">
             <Button
-              children={<NavLink to="/contactus">Contact Now</NavLink>}
-              onClick={(): void => {}}
-              colour={"neutral900"}
-              hColour={"neutral30"}
-              hBgColor={"primary300"}
+              children={"Contact Now"}
+              variant={"secondary"}
+              to={"/contactus"}
             />
           </div>
         </div>

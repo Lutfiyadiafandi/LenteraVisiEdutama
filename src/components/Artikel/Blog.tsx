@@ -1,13 +1,9 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ArtikelBlog from "../../assets/img/Img-ArtikelBlog.png";
 import Button from "../Atoms/Button";
 
 const Blog = () => {
-  const navigate = useNavigate();
-  const navigateToContent = () => {
-    navigate("/artikelcontent");
-  };
   const blogs = [
     {
       id: 1,
@@ -33,7 +29,11 @@ const Blog = () => {
     },
   ];
   return (
-    <section className="max-w-screen-xl mx-auto px-4 md:px-5 xxl:px-0 mt-[50px] md:mt-[112px]">
+    <section
+      // data-aos="fade-down"
+      // data-aos-duration="2000"
+      className="max-w-screen-xl mx-auto px-4 md:px-5 xxl:px-0 mt-[50px] md:mt-[112px]"
+    >
       <h2 className="font-semibold text-heading-m md:text-heading-xl text-neutral800">
         Artikel
       </h2>
@@ -41,6 +41,9 @@ const Blog = () => {
         {blogs.map((blog) => (
           <div
             key={blog.id}
+            // data-aos="fade-left"
+            // data-aos-duration="2000"
+            // data-aos-delay="300"
             className="max-w-[400px] flex flex-col justify-between gap-4 p-4 border border-neutral30 rounded-2xl cursor-pointer"
           >
             <div>
@@ -57,18 +60,15 @@ const Blog = () => {
             <div>
               <Button
                 children={"Read More"}
-                onClick={() => navigateToContent()}
-                size="full"
-                colour={"neutral900"}
-                hColour={"neutral30"}
-                hBgColor={"primary300"}
+                variant={"primary"}
+                to={`/artikel_details/${blog.id}`}
               />
             </div>
           </div>
         ))}
       </div>
       <h5 className="font-semibold text-right text-heading-s md:text-heading-m text-neutral800">
-        <a href="/artikel">View All</a>
+        <Link to={"/artikel"}>View All</Link>
       </h5>
     </section>
   );

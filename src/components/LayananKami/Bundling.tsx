@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import Button from "../Atoms/Button";
-import { useNavigate } from "react-router-dom";
 
 const Bundling = () => {
-  const navigate = useNavigate();
-  const navigateToContent = () => {
-    navigate("/layanankami_productdetails");
-  };
   const bundle = [
     {
       id: 1,
@@ -83,11 +78,8 @@ const Bundling = () => {
             <div className="w-full rounded-lg">
               <Button
                 children={"Book Now"}
-                onClick={() => navigateToContent()}
-                size="full"
-                colour={"neutral900"}
-                hColour={"neutral30"}
-                hBgColor={"primary300"}
+                variant={"primary"}
+                to={`/layanankami_productdetails/bundling_${bundle.id}`}
               />
             </div>
           </div>

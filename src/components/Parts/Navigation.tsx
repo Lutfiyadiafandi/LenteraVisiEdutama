@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../../assets/img/Logo.png";
 import { NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Navigation = () => {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   const [nav, setNav] = useState(false);
   const navs = [
     {
@@ -33,7 +39,7 @@ const Navigation = () => {
     },
   ];
   return (
-    <header className="w-full navShadow">
+    <header data-aos="fade-down" className="w-full navShadow">
       <div className="max-w-screen-xl px-4 mx-auto md:px-5 xxl:px-0">
         <div className="relative items-center justify-between px-2 py-5 sm:flex">
           <div>
@@ -44,7 +50,7 @@ const Navigation = () => {
               {navs.map((nav) => (
                 <li
                   key={nav.id}
-                  className="ml-6 font-medium capitalize cursor-pointer text-type-m text-primary500 hover:text-primary200 active:text-primary200 active:font-semibold"
+                  className="ml-6 font-medium capitalize cursor-pointer text-type-m text-primary500 hover:text-primary200"
                 >
                   <NavLink to={nav.path}>{nav.link}</NavLink>
                 </li>
@@ -69,7 +75,7 @@ const Navigation = () => {
                 {navs.map((nav) => (
                   <li
                     key={nav.id}
-                    className="w-full py-1 font-semibold capitalize cursor-pointer text-type-l text-primary500 hover:text-primary200"
+                    className="w-full py-1 font-medium capitalize cursor-pointer text-type-l text-primary500 hover:text-primary200"
                   >
                     <NavLink onClick={() => setNav(!nav)} to={nav.path}>
                       {nav.link}

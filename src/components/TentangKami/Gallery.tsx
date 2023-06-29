@@ -26,25 +26,25 @@ const Gallery = () => {
           <SwiperSlide>
             <img
               src="https://swiperjs.com/demos/images/nature-1.jpg"
-              className="w-[650px] h-[375px] mx-auto object-cover"
+              className="w-[650px] max-h-[375px] mx-auto object-cover"
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
               src="https://swiperjs.com/demos/images/nature-2.jpg"
-              className="w-[650px] h-[375px] mx-auto object-cover"
+              className="w-[650px] max-h-[375px] mx-auto object-cover"
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
               src="https://swiperjs.com/demos/images/nature-3.jpg"
-              className="w-[650px] h-[375px] mx-auto object-cover"
+              className="w-[650px] max-h-[375px] mx-auto object-cover"
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
               src="https://swiperjs.com/demos/images/nature-4.jpg"
-              className="w-[650px] h-[375px] mx-auto object-cover"
+              className="w-[650px] max-h-[375px] mx-auto object-cover"
             />
           </SwiperSlide>
         </Swiper>
