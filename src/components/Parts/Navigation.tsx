@@ -20,12 +20,12 @@ const Navigation = () => {
     {
       id: 2,
       link: "tentang kami",
-      path: "/tentangkami",
+      path: "/aboutus",
     },
     {
       id: 3,
       link: "layanan kami",
-      path: "/layanankami",
+      path: "/ourservice",
     },
     {
       id: 4,

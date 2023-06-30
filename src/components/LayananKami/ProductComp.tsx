@@ -39,7 +39,7 @@ const ProductComp = (props: any) => {
         <Button
           children={"Book Now"}
           variant={"primary"}
-          to={`/layanankami_productdetails/${props.id}`}
+          to={`/ourservice/productdetails/${props.id}`}
         />
       </div>
     </div>

@@ -79,7 +79,7 @@ const Bundling = () => {
               <Button
                 children={"Book Now"}
                 variant={"primary"}
-                to={`/layanankami_productdetails/bundling_${bundle.id}`}
+                to={`/ourservice/productdetails/bundling${bundle.id}`}
               />
             </div>
           </div>

@@ -21,7 +21,7 @@ const Artikels = (props: any) => {
         <Button
           children={<IconBtn title={"Read More"} />}
           variant={"secondary"}
-          to={`/artikel_details/${props.id}`}
+          to={`/artikel/details/${props.id}`}
         />
       </div>
     </div>

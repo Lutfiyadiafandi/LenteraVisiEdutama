@@ -13,14 +13,14 @@ export default function App() {
       <Routes>
         <Route index element={<Home />} />
         <Route path="/" element={<Home />} />
-        <Route path="/tentangkami" element={<TentangKami />} />
-        <Route path="/layanankami" element={<LayananKami />} />
+        <Route path="/aboutus" element={<TentangKami />} />
+        <Route path="/ourservice" element={<LayananKami />} />
         <Route
-          path="/layanankami_productdetails/:id"
+          path="/ourservice/productdetails/:id"
           element={<LayananKami_ProductDetails />}
         />
         <Route path="/artikel" element={<Artikel />} />
-        <Route path="/artikel_details/:id" element={<Artikel_Details />} />
+        <Route path="/artikel/details/:id" element={<Artikel_Details />} />
         <Route path="/contactus" element={<ContactUs />} />
       </Routes>
     </BrowserRouter>

@@ -61,7 +61,7 @@ const Blog = () => {
               <Button
                 children={"Read More"}
                 variant={"primary"}
-                to={`/artikel_details/${blog.id}`}
+                to={`/artikel/details/${blog.id}`}
               />
             </div>
           </div>

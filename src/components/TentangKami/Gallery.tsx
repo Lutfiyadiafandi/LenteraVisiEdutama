@@ -1,4 +1,5 @@
 import React from "react";
+import ImgGallery from "../../assets/img/Img-Gallery.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Autoplay } from "swiper";
 
@@ -25,25 +26,7 @@ const Gallery = () => {
         >
           <SwiperSlide>
             <img
-              src="https://swiperjs.com/demos/images/nature-1.jpg"
-              className="w-[650px] max-h-[375px] mx-auto object-cover"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src="https://swiperjs.com/demos/images/nature-2.jpg"
-              className="w-[650px] max-h-[375px] mx-auto object-cover"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src="https://swiperjs.com/demos/images/nature-3.jpg"
-              className="w-[650px] max-h-[375px] mx-auto object-cover"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src="https://swiperjs.com/demos/images/nature-4.jpg"
+              src={ImgGallery}
               className="w-[650px] max-h-[375px] mx-auto object-cover"
             />
           </SwiperSlide>
