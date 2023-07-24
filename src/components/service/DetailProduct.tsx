@@ -10,8 +10,8 @@ import Swal from "sweetalert2";
 
 const ProductDetail = () => {
   const { slug } = useParams();
-  const [response, loading, error] = useAxios("product");
-  const product: any = response?.filter((item: any) => item.slug == slug)[0];
+  const [response, loading, error] = useAxios(`product/${slug}`);
+  const product: any = response;
   const item = product?.title;
 
   const [data, setData] = useState({

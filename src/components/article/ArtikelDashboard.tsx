@@ -8,11 +8,10 @@ import HeadingTitle from "../atoms/HeadingTitle";
 
 const ArtikelDashboard = () => {
   const [artikels, setArtikels] = useState([]);
-  const [artikelSearch, setArtikelSearch] = useState([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [text, setText] = useState("");
   const [search, setSearch] = useState(false);
-  const baseUrl = `http://localhost:4000/artikel`;
+  const baseUrl = `http://localhost:4000/artikel?title=${text}`;
   useEffect(() => {
     axios.get(baseUrl).then((response) => {
       setTimeout(() => setLoading(false), 1000);
@@ -28,10 +27,10 @@ const ArtikelDashboard = () => {
     text === "" ? setSearch(false) : setSearch(true);
     try {
       await axios
-        .get(`http://localhost:4000/artikel/search?title=${text}`)
+        .get(`http://localhost:4000/artikel?title=${text}`)
         .then((response) => {
           setTimeout(() => setLoading(false), 1000);
-          setArtikelSearch(response.data.data);
+          setArtikels(response.data.data);
         });
     } catch (error) {
       console.error("Error fetching search results:", error);
@@ -59,15 +58,30 @@ const ArtikelDashboard = () => {
       <div>
         <Search change={handleSearch} value={text} click={handleClick} />
         {search == true ? (
-          <div className="pt-[22px] flex flex-col gap-4">
-            {artikelSearch.map((artikel: any) => (
-              <ArtikelComp
-                key={artikel.id}
-                slug={artikel.slug}
-                img={artikel.image}
-                title={artikel.title}
+          <div>
+            <div className="pt-[22px] flex flex-col gap-4">
+              {displayArtikels.map((artikel: any) => (
+                <ArtikelComp
+                  key={artikel.id}
+                  slug={artikel.slug}
+                  img={artikel.image}
+                  title={artikel.title}
+                />
+              ))}
+            </div>
+            <div className="flex justify-end w-full">
+              <ReactPaginate
+                previousLabel="&laquo;"
+                nextLabel="&raquo;"
+                onPageChange={changePage}
+                pageCount={pageCount}
+                containerClassName="paginationBtn"
+                nextClassName="nextBtn"
+                previousClassName="prevBtn"
+                disabledClassName="disabledBtn"
+                activeClassName="activeBtn"
               />
-            ))}
+            </div>
           </div>
         ) : (
           <div>

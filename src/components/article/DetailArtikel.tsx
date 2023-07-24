@@ -9,8 +9,8 @@ import moment from "moment";
 const ArtikelDetail = () => {
   moment.locale("id");
   const { slug } = useParams();
-  const [response, loading, error] = useAxios("artikel");
-  const artikel: any = response?.filter((item: any) => item.slug == slug)[0];
+  const [response, loading, error] = useAxios(`artikel/${slug}`);
+  const artikel: any = response;
 
   const url = window.location.href;
   const shareFb = () => {

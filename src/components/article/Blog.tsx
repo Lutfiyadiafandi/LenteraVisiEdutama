@@ -6,7 +6,7 @@ import HeadingTitle from "../atoms/HeadingTitle";
 
 const Blog = () => {
   const { slug } = useParams();
-  const [response, loading, error] = useAxios("artikel");
+  const [response, loading, error] = useAxios("artikel?title=");
   const artikel: any = response?.filter((item: any) => item.slug !== slug);
 
   return (
@@ -19,10 +19,10 @@ const Blog = () => {
           artikel?.slice(0, 3).map((artikel: any) => (
             <div
               key={artikel.id}
-              className="max-w-[400px] flex flex-col justify-between gap-4 p-4 border border-neutral30 rounded-2xl cursor-pointer"
+              className="max-w-[400px] flex flex-col justify-between gap-4 p-4 border border-neutral30 rounded-2xl"
             >
               <div>
-                <img src={artikel.image} className="object-fill aspect-video" />
+                <img src={artikel.image} className="" />
               </div>
               <div className="flex flex-col gap-4">
                 <h3 className="font-medium text-type-l md:text-heading-s text-neutral900">
