@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 type Props = {
@@ -18,7 +18,7 @@ const Button = ({ children, variant, to }: Props) => {
     </Link>
   ) : (
     <button
-      className={`text-type-s md:text-type-m font-medium text-neutral900 bg-neutral0 border border-gradient py-2 px-4 mx-auto rounded-lg hover:bg-primary300 hover:text-neutral30 focus:outline-none cursor-pointer group transition-all ease-in-out duration-300`}
+      className={`text-type-m font-medium text-neutral900 bg-neutral0 border border-gradient py-2 px-4 mx-auto rounded-lg hover:bg-primary300 hover:text-neutral30 focus:outline-none cursor-pointer group transition-all ease-in-out duration-300`}
     >
       <Link to={to}>{children}</Link>
     </button>
