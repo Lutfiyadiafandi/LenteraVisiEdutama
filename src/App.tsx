@@ -14,13 +14,13 @@ export default function App() {
       <Routes>
         <Route index element={<Home />} />
         <Route path="/" element={<Home />} />
-        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/about" element={<AboutUs />} />
         <Route path="/service" element={<OurService />} />
         <Route path="/service/:slug" element={<ServiceDetails />} />
         <Route path="/service/bundling/:slug" element={<BundlingDetails />} />
         <Route path="/article" element={<Artikel />} />
         <Route path="/article/:slug" element={<ArtikelDetails />} />
-        <Route path="/contactus" element={<ContactUs />} />
+        <Route path="/contact" element={<ContactUs />} />
       </Routes>
     </BrowserRouter>
   );

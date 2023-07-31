@@ -14,10 +14,11 @@ const ArtikelDetail = () => {
 
   const url = window.location.href;
   const shareFb = () => {
-    window.open(
-      `https://www.facebook.com/sharer/sharer.php?u=#${url}`,
-      "_blank"
-    );
+    // window.open(
+    //   `https://www.facebook.com/sharer/sharer.php?u=#${url}`,
+    //   "_blank"
+    // );
+    console.log(window.location.href);
   };
   const sharePin = () => {
     console.log(window.location.href);

@@ -11,7 +11,7 @@ const ArtikelDashboard = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [text, setText] = useState("");
   const [search, setSearch] = useState(false);
-  const baseUrl = `http://localhost:4000/artikel?title=${text}`;
+  const baseUrl = `http://localhost:4000/api/artikel?title=${text}`;
   useEffect(() => {
     axios.get(baseUrl).then((response) => {
       setTimeout(() => setLoading(false), 1000);
@@ -27,7 +27,7 @@ const ArtikelDashboard = () => {
     text === "" ? setSearch(false) : setSearch(true);
     try {
       await axios
-        .get(`http://localhost:4000/artikel?title=${text}`)
+        .get(`http://localhost:4000/api/artikel?title=${text}`)
         .then((response) => {
           setTimeout(() => setLoading(false), 1000);
           setArtikels(response.data.data);

@@ -16,7 +16,6 @@ const Partner = () => {
               <div className="w-[117px] h-[117px]" key={data.id}>
                 <img src={data.logo} />
               </div>
-              // <div className="w-[117px] h-[117px] rounded-full bg-gradient-to-r from-gradient to-primary300"></div>
             ))
           )}
         </div>

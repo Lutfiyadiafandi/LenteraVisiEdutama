@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ModalDetail from "./ModalDetail";
 import ModalTitle from "./ModalTitle";
 import ModalRegist from "./ModalRegist";
@@ -13,6 +13,14 @@ const ProductDetail = () => {
   const [response, loading, error] = useAxios(`product/${slug}`);
   const product: any = response;
   const item = product?.title;
+
+  const [contact, setContact] = useState<any>();
+  const baseUrl = "http://localhost:4000/api/contact";
+  useEffect(() => {
+    axios.get(baseUrl).then((resp) => {
+      setContact(resp.data.data);
+    });
+  }, []);
 
   const [data, setData] = useState({
     name: "",
@@ -39,7 +47,6 @@ const ProductDetail = () => {
     };
     axios
       .post("http://localhost:1337/api/form-products", { data: formProduct })
-      // .then((res) => console.log(res))
       .catch((err) => console.log(err));
 
     Swal.fire(`Thank You!`, `You Have Ordered Our Service: ${item}`, "success");
@@ -51,9 +58,8 @@ const ProductDetail = () => {
   };
 
   const handleClick = () => {
-    const url = "https://wa.me/08123456789";
-    // window.location.href = ;
-    setTimeout(() => window.open(url, "_blank"), 3000);
+    const url = `https://wa.me/${contact.phonenumber}`;
+    setTimeout(() => window.open(url, "_blank"), 5000);
   };
 
   return (
@@ -83,6 +89,7 @@ const ProductDetail = () => {
                 <input
                   type="text"
                   name="name"
+                  required
                   onChange={handleChange}
                   value={data.name}
                   placeholder="Nama anda"
@@ -96,6 +103,7 @@ const ProductDetail = () => {
                 <input
                   type="email"
                   name="email"
+                  required
                   onChange={handleChange}
                   value={data.email}
                   placeholder="Email anda"
@@ -109,6 +117,7 @@ const ProductDetail = () => {
                 <input
                   type="number"
                   name="phone"
+                  required
                   onChange={handleChange}
                   value={data.phone}
                   placeholder="Nomor Whatsapp"

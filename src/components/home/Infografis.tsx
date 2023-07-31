@@ -5,10 +5,10 @@ import HeadingTitle from "../atoms/HeadingTitle";
 
 const Infografis = () => {
   const [response, setResponse] = useState<any>();
-  const baseUrl = "http://localhost:4000/infografis";
+  const baseUrl = "http://localhost:4000/api/infografis";
   useEffect(() => {
     axios.get(baseUrl).then((resp) => {
-      setResponse(resp.data.data[0]);
+      setResponse(resp.data.data);
     });
   }, []);
   return (

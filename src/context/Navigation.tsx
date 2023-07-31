@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import Logo from "../../assets/img/Logo.png";
-// import Logo from "../../../public/images/Logo.webp";
 import { NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import AOS from "aos";
@@ -21,7 +19,7 @@ const Navigation = () => {
     {
       id: 2,
       link: "tentang kami",
-      path: "/aboutus",
+      path: "/about",
     },
     {
       id: 3,
@@ -36,7 +34,7 @@ const Navigation = () => {
     {
       id: 5,
       link: "contact us",
-      path: "/contactus",
+      path: "/contact",
     },
   ];
   return (
@@ -44,10 +42,7 @@ const Navigation = () => {
       <div className="max-w-screen-xl px-4 mx-auto md:px-5 xxl:px-0">
         <div className="relative items-center justify-between px-2 py-5 sm:flex">
           <div>
-            <img
-              src="http://localhost:3000/images/Logo.webp"
-              className="w-10 md:w-14 xl:w-20"
-            />
+            <img src="./images/Logo.webp" className="w-10 md:w-14 xl:w-20" />
           </div>
           <div>
             <ul className="hidden sm:flex">

@@ -9,7 +9,7 @@ export const useAxios = (url: string) => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:4000/${url}`)
+      .get(`http://localhost:4000/api/${url}`)
       .then((resp) => {
         setTimeout(() => setLoading(false), 2000);
         setResponse(resp.data.data);

@@ -19,7 +19,7 @@ const Bundling = () => {
           response?.map((bundle: any) => (
             <div
               key={bundle.id}
-              className="w-[600px] flex flex-col gap-3 md:gap-4 p-3 md:p-5 bg-gradient-to-r from-gradient to-primary200 rounded-2xl mx-auto"
+              className="w-[600px] flex flex-col gap-3 md:gap-4 p-3 md:p-5 bg-gradient-to-r from-gradient justify-between to-primary200 rounded-2xl mx-auto"
             >
               <div className="flex flex-col gap-[10px] p-3 md:p-5 rounded bg-primary300 text-neutral0">
                 <h4 className="font-semibold text-type-l md:text-heading-s">
@@ -29,20 +29,15 @@ const Bundling = () => {
                   {bundle.totalproduct}
                 </h5>
                 <ul className="list-inside">
-                  <li className="font-medium list-disc md:text-type-m">
-                    Self-Concept and Communication
-                  </li>
-                  <li className="font-medium list-disc md:text-type-m">
-                    Self-Healing and Communication
-                  </li>
-                  <li className="font-medium list-disc md:text-type-m">
-                    Business Communication Etiquette & You-Attitude
-                  </li>
-                  <li className="font-medium list-disc md:text-type-m">
-                    Readers Benefit In Every Message
-                  </li>
+                  {bundle.products.map((item: any) => (
+                    <li
+                      className="font-medium list-disc md:text-type-m"
+                      key={item.products_id}
+                    >
+                      {item.products_title}
+                    </li>
+                  ))}
                 </ul>
-
                 <div className="flex flex-col items-center">
                   <p className="font-medium text-type-m">
                     <s>{bundle.price}</s>

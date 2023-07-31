@@ -4,7 +4,7 @@ import ModalRegist from "./ModalRegist";
 import IconBtn from "../atoms/IconBtn";
 import ModalDetail from "./ModalDetail";
 import ModalTitleBundling from "./ModalTitleBundling";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -13,6 +13,14 @@ const BundlingDetail = () => {
   const [response, loading, error] = useAxios("bundling");
   const product: any = response?.filter((item: any) => item.slug == slug)[0];
   const item = product?.title;
+
+  const [contact, setContact] = useState<any>();
+  const baseUrl = "http://localhost:4000/api/contact";
+  useEffect(() => {
+    axios.get(baseUrl).then((resp) => {
+      setContact(resp.data.data);
+    });
+  }, []);
 
   const [data, setData] = useState({
     name: "",
@@ -39,7 +47,6 @@ const BundlingDetail = () => {
     };
     axios
       .post("http://localhost:1337/api/form-products", { data: formProduct })
-      // .then((res) => console.log(res))
       .catch((err) => console.log(err));
 
     Swal.fire(`Thank You!`, `You Have Ordered Our Service: ${item}`, "success");
@@ -51,9 +58,8 @@ const BundlingDetail = () => {
   };
 
   const handleClick = () => {
-    const url = "https://wa.me/08123456789";
-    // window.location.href = ;
-    setTimeout(() => window.open(url, "_blank"), 3000);
+    const url = `https://wa.me/${contact.phonenumber}`;
+    setTimeout(() => window.open(url, "_blank"), 5000);
   };
 
   return (
@@ -62,10 +68,24 @@ const BundlingDetail = () => {
         <div className="flex flex-col gap-12 md:gap-20">
           {error && <p>{error.message}</p>}
           <div className="flex flex-col gap-6 md:gap-10">
-            <ModalTitleBundling
-              title={product?.title}
-              desc={product?.totalproduct}
-            />
+            <div className="flex flex-col gap-5 judul">
+              <h3 className="font-medium text-heading-s md:text-heading-l text-neutral800">
+                {product?.title}
+              </h3>
+              <p className="font-normal text-type-m md:text-type-l text-neutral500">
+                {product?.totalproduct}
+              </p>
+              <ul className="list-inside">
+                {product?.products.map((item: any) => (
+                  <li
+                    className="font-medium list-disc md:text-type-m"
+                    key={item.products_id}
+                  >
+                    {item.products_title}
+                  </li>
+                ))}
+              </ul>
+            </div>
             <ModalDetail detail={product?.detail} />
           </div>
 
@@ -83,6 +103,7 @@ const BundlingDetail = () => {
                   <input
                     type="text"
                     name="name"
+                    required
                     onChange={handleChange}
                     value={data.name}
                     placeholder="Nama anda"
@@ -96,6 +117,7 @@ const BundlingDetail = () => {
                   <input
                     type="email"
                     name="email"
+                    required
                     onChange={handleChange}
                     value={data.email}
                     placeholder="Email anda"
@@ -109,6 +131,7 @@ const BundlingDetail = () => {
                   <input
                     type="number"
                     name="phone"
+                    required
                     onChange={handleChange}
                     value={data.phone}
                     placeholder="Nomor Whatsapp"

@@ -6,11 +6,11 @@ import "react-loading-skeleton/dist/skeleton.css";
 const VisiMisi = () => {
   const [response, setResponse] = useState<any>();
   const [loading, setLoading] = useState<boolean>(true);
-  const baseUrl = "http://localhost:4000/visimisi";
+  const baseUrl = "http://localhost:4000/api/visimisi";
   useEffect(() => {
     axios.get(baseUrl).then((resp) => {
       setTimeout(() => setLoading(false), 2000);
-      setResponse(resp.data.data[0]);
+      setResponse(resp.data.data);
     });
   }, []);
   return (

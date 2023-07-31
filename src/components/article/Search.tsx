@@ -1,11 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaSearch } from "react-icons/fa";
 
 const Search = (props: any) => {
-  // const [text, setText] = useState("");
-  // const handleSearch = (e: any) => {
-  //   setText(e.target.value);
-  // };
   return (
     <div className="w-full md:w-4/5 lg:w-3/5 flex justify-between items-center gap-2 md:gap-4 border-[1px] border-neutral30 rounded-md p-[10px]">
       <FaSearch size={30} color="#1E739A" />

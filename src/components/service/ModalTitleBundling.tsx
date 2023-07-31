@@ -10,18 +10,14 @@ const ModalTitleBundling = (props: any) => {
         {props.desc}
       </p>
       <ul className="list-inside">
-        <li className="font-medium list-disc md:text-type-m">
-          Self-Concept and Communication
-        </li>
-        <li className="font-medium list-disc md:text-type-m">
-          Self-Healing and Communication
-        </li>
-        <li className="font-medium list-disc md:text-type-m">
-          Business Communication Etiquette & You-Attitude
-        </li>
-        <li className="font-medium list-disc md:text-type-m">
-          Readers Benefit In Every Message
-        </li>
+        {props.map((product: any) => (
+          <li
+            className="font-medium list-disc md:text-type-m"
+            key={product.products_id}
+          >
+            {product.products_title}
+          </li>
+        ))}
       </ul>
     </div>
   );

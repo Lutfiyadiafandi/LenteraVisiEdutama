@@ -5,10 +5,10 @@ import axios from "axios";
 
 const Message = () => {
   const [response, setResponse] = useState<any>();
-  const baseUrl = "http://localhost:4000/contact";
+  const baseUrl = "http://localhost:4000/api/contact";
   useEffect(() => {
     axios.get(baseUrl).then((resp) => {
-      setResponse(resp.data.data[0]);
+      setResponse(resp.data.data);
     });
   }, []);
   return (
@@ -26,7 +26,7 @@ const Message = () => {
             <Button
               children={"Contact Now"}
               variant={"secondary"}
-              to={"/contactus"}
+              to={"/contact"}
             />
           </div>
         </div>

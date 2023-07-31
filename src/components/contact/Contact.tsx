@@ -6,10 +6,10 @@ import HeadingTitle from "../atoms/HeadingTitle";
 
 const Contact = () => {
   const [response, setResponse] = useState<any>();
-  const baseUrl = "http://localhost:4000/contact";
+  const baseUrl = "http://localhost:4000/api/contact";
   useEffect(() => {
     axios.get(baseUrl).then((resp) => {
-      setResponse(resp.data.data[0]);
+      setResponse(resp.data.data);
     });
   }, []);
 
@@ -37,7 +37,6 @@ const Contact = () => {
     };
     axios
       .post("http://localhost:1337/api/form-contacts", { data: formContact })
-      // .then((res) => console.log(res))
       .catch((err) => console.log(err));
 
     Swal.fire({
@@ -69,7 +68,7 @@ const Contact = () => {
           </p>
         </div>
       </div>
-      {/* bg-neutral900 */}
+
       <div className="w-full mt-10 rounded-lg lg:mt-4 lg:w-1/2 bg-primary300">
         <form
           onSubmit={handleSubmit}
@@ -82,6 +81,7 @@ const Contact = () => {
             <input
               type="text"
               name="name"
+              required
               onChange={handleChange}
               value={data.name}
               placeholder="Nama anda"
@@ -95,6 +95,7 @@ const Contact = () => {
             <input
               type="email"
               name="email"
+              required
               onChange={handleChange}
               value={data.email}
               placeholder="Email anda"
@@ -108,6 +109,7 @@ const Contact = () => {
             <textarea
               name="pesan"
               placeholder="Tulis pesan anda disini"
+              required
               onChange={handleChange}
               value={data.pesan}
               rows={5}
