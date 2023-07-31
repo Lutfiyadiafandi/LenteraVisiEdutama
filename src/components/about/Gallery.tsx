@@ -33,7 +33,7 @@ const Gallery = () => {
             <Skeleton className="w-full h-[375px]" />
           ) : (
             response?.map((data: any) => (
-              <SwiperSlide>
+              <SwiperSlide key={data.id}>
                 <img
                   src={data.image}
                   className="w-full h-[375px] object-cover"
