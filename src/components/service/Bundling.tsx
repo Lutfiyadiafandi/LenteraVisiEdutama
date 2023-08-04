@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "../atoms/Button";
 import { useAxios } from "../../hooks/useAxios";
 import HeadingTitle from "../atoms/HeadingTitle";
+import BundlingSkeleton from "../skeleton/BundlingSkeleton";
 
 const Bundling = () => {
   const [response, loading, error] = useAxios("bundling");
@@ -13,8 +14,8 @@ const Bundling = () => {
       </div>
 
       <div className="flex flex-wrap justify-between gap-10">
-        {error ? (
-          <p>{error.message}</p>
+        {loading ? (
+          <BundlingSkeleton />
         ) : (
           response?.map((bundle: any) => (
             <div

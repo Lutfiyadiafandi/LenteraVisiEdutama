@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import "swiper/css/navigation";
 import { useAxios } from "../../hooks/useAxios";
+import ServiceSkeleton from "../skeleton/ServiceSkeleton";
 
 const SliderService = () => {
   const [response, loading, error] = useAxios("product");
@@ -37,15 +38,19 @@ const SliderService = () => {
           },
         }}
       >
-        {error ? (
-          <p>{error.message}</p>
+        {loading ? (
+          <ServiceSkeleton />
         ) : (
           response?.map((product: any) => (
             <SwiperSlide key={product.id}>
               <div className="flex justify-center max-w-screen-xl gap-5">
                 <div className="h-[234px] bg-neutral0 items-center justify-center flex rounded-2xl border-2 border-gradient group hover:bg-primary300 transition-all ease-out duration-300">
                   <div className="w-[248px] md:w-[259px] flex flex-col items-center justify-center mx-3 md:mx-4 my-5">
-                    <img src={product.image} className="w-[112px]" />
+                    <img
+                      src={product.image}
+                      className="w-[112px]"
+                      alt="product-image"
+                    />
                     <p className="pt-6 font-medium text-center text-type-l text-primary300 group-hover:text-neutral0">
                       {product.title}
                     </p>

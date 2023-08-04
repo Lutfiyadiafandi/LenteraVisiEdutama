@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import Button from "../atoms/Button";
 import { useAxios } from "../../hooks/useAxios";
 import HeadingTitle from "../atoms/HeadingTitle";
+import BlogSkeleton from "../skeleton/BlogSkeleton";
 
 const Blog = () => {
   const { slug } = useParams();
@@ -13,8 +14,8 @@ const Blog = () => {
     <section className="max-w-screen-xl mx-auto px-4 md:px-5 xxl:px-0 mt-[50px] md:mt-[112px]">
       <HeadingTitle title={"Artikel"} />
       <div className="flex flex-col w-full gap-5 py-4 md:flex-row">
-        {error ? (
-          <p>{error.message}</p>
+        {loading ? (
+          <BlogSkeleton />
         ) : (
           artikel?.slice(0, 3).map((artikel: any) => (
             <div
@@ -24,6 +25,7 @@ const Blog = () => {
               <div>
                 <img
                   src={artikel.image}
+                  alt="article-image"
                   className="object-cover rounded-2xl w-full h-[170px]"
                 />
               </div>

@@ -8,7 +8,7 @@ const ProductComp = (props: any) => {
     >
       <div className="flex flex-col items-center gap-5 md:gap-8">
         <div className="w-[112px]">
-          <img src={props.image} />
+          <img src={props.image} alt="product-image" />
         </div>
         <div className="flex flex-col items-center gap-2 text-center">
           <h4 className="font-medium text-type-l text-primary300">

@@ -1,26 +1,17 @@
 import { useEffect } from "react";
 import { useAxios } from "../../hooks/useAxios";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import HeadingTitle from "../atoms/HeadingTitle";
+import WhyLVESkeleton from "../skeleton/WhyLVESkeleton";
 
 const Whylve = () => {
   const [response, loading, error] = useAxios("why-lve");
-  // useEffect(() => {
-  //   AOS.init();
-  //   AOS.refresh();
-  // }, []);
 
   return (
-    <section
-      // data-aos="fade-down"
-      // data-aos-duration="2000"
-      className="max-w-screen-xl mx-auto px-4 md:px-5 xxl:px-0 mt-[100px] md:mt-[150px] lg:mt-[300px]"
-    >
+    <section className="max-w-screen-xl mx-auto px-4 md:px-5 xxl:px-0 mt-[100px] md:mt-[150px] lg:mt-[300px]">
       <HeadingTitle title={"Kenapa Lentera Visi Edutama"} />
       <div className="flex flex-col flex-wrap justify-between gap-4 py-10 lg:flex-row">
-        {error ? (
-          <p>{error.message}</p>
+        {loading ? (
+          <WhyLVESkeleton />
         ) : (
           response?.map((data: any) => (
             <div
@@ -49,7 +40,3 @@ const Whylve = () => {
 };
 
 export default Whylve;
-
-// data-aos="fade-left"
-// data-aos-duration="2000"
-// data-aos-delay="300"

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import BannerSkeleton from "../skeleton/BannerSkeleton";
@@ -7,7 +6,7 @@ import BannerSkeleton from "../skeleton/BannerSkeleton";
 const Banner = () => {
   const [response, setResponse] = useState<any>();
   const [loading, setLoading] = useState<boolean>(true);
-  const baseUrl = "http://localhost:4000/api/banner";
+  const baseUrl = `${process.env.REACT_APP_API_URL}/banner`;
   useEffect(() => {
     axios.get(baseUrl).then((resp) => {
       setTimeout(() => setLoading(false), 2000);
@@ -45,7 +44,11 @@ const Banner = () => {
 
           <div className="mt-[34px] order-first md:order-last">
             <figure className="md:absolute md:top-32 xl:top-10 md:right-5 md:w-[393px] xl:w-[591.81px] mx-auto">
-              <img src={response?.image} className="w-full" />
+              <img
+                src={response?.image}
+                className="w-full"
+                alt="banner-image"
+              />
             </figure>
           </div>
         </div>

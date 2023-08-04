@@ -7,27 +7,40 @@ import "react-loading-skeleton/dist/skeleton.css";
 import moment from "moment";
 
 const ArtikelDetail = () => {
-  moment.locale("id");
   const { slug } = useParams();
   const [response, loading, error] = useAxios(`artikel/${slug}`);
   const artikel: any = response;
 
   const url = window.location.href;
-  const shareFb = () => {
-    // window.open(
-    //   `https://www.facebook.com/sharer/sharer.php?u=#${url}`,
-    //   "_blank"
-    // );
-    console.log(window.location.href);
-  };
-  const sharePin = () => {
-    console.log(window.location.href);
-  };
-  const shareTwt = () => {
-    console.log(window.location.href);
-  };
-  const shareWa = () => {
-    console.log(window.location.href);
+  const shareOnSocialMedia = (socialMedia: string) => {
+    let shareUrl = "";
+    switch (socialMedia) {
+      case "facebook":
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+          url
+        )}`;
+        break;
+      case "pinterest":
+        shareUrl = `https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(
+          url
+        )}`;
+        break;
+      case "twitter":
+        shareUrl = `https://www.twitter.com/share?url=${encodeURIComponent(
+          url
+        )}`;
+        break;
+      case "whatsapp":
+        shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(
+          url
+        )}`;
+        break;
+      default:
+        break;
+    }
+    if (shareUrl) {
+      window.open(shareUrl, "_blank");
+    }
   };
 
   return (
@@ -39,6 +52,7 @@ const ArtikelDetail = () => {
         ) : (
           <img
             src={artikel?.image}
+            alt="article-image"
             className="object-cover w-full xxl:w-[1237px] xl:h-[504px] aspect-video rounded-lg md:rounded-xl lg:rounded-2xl"
           />
         )}
@@ -47,7 +61,7 @@ const ArtikelDetail = () => {
       <div className="flex flex-col justify-between w-full gap-2 mt-5 md:flex-row">
         <div className="flex flex-col w-full md:w-4/5">
           <p className="font-medium text-type-s text-neutral100">
-            {moment(artikel?.date).format("LL") || <Skeleton />}
+            {moment(artikel?.date).locale("id").format("LL") || <Skeleton />}
           </p>
           <h2 className="font-medium text-heading-s md:text-heading-l text-primary500">
             {artikel?.title || <Skeleton height={50} />}
@@ -60,22 +74,22 @@ const ArtikelDetail = () => {
           <div className="flex gap-3 md:gap-[22px]">
             <FaFacebook
               size={20}
-              onClick={shareFb}
+              onClick={() => shareOnSocialMedia("facebook")}
               className="cursor-pointer text-neutral500"
             />
             <FaPinterest
               size={20}
-              onClick={sharePin}
+              onClick={() => shareOnSocialMedia("pinterest")}
               className="cursor-pointer text-neutral500"
             />
             <FaTwitter
               size={20}
-              onClick={shareTwt}
+              onClick={() => shareOnSocialMedia("twitter")}
               className="cursor-pointer text-neutral500"
             />
             <FaWhatsapp
               size={20}
-              onClick={shareWa}
+              onClick={() => shareOnSocialMedia("whatsapp")}
               className="cursor-pointer text-neutral500"
             />
           </div>

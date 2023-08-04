@@ -15,7 +15,7 @@ const BundlingDetail = () => {
   const item = product?.title;
 
   const [contact, setContact] = useState<any>();
-  const baseUrl = "http://localhost:4000/api/contact";
+  const baseUrl = `${process.env.REACT_APP_API_URL}/contact`;
   useEffect(() => {
     axios.get(baseUrl).then((resp) => {
       setContact(resp.data.data);
@@ -46,7 +46,9 @@ const BundlingDetail = () => {
       product: item,
     };
     axios
-      .post("http://localhost:1337/api/form-products", { data: formProduct })
+      .post(`${process.env.REACT_APP_STRAPI_URL}/api/form-products`, {
+        data: formProduct,
+      })
       .catch((err) => console.log(err));
 
     Swal.fire(`Thank You!`, `You Have Ordered Our Service: ${item}`, "success");

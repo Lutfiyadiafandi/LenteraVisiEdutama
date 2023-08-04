@@ -11,7 +11,7 @@ const ArtikelDashboard = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [text, setText] = useState("");
   const [search, setSearch] = useState(false);
-  const baseUrl = `http://localhost:4000/api/artikel?title=${text}`;
+  const baseUrl = `${process.env.REACT_APP_API_URL}/artikel?title=${text}`;
   useEffect(() => {
     axios.get(baseUrl).then((response) => {
       setTimeout(() => setLoading(false), 1000);
@@ -26,12 +26,10 @@ const ArtikelDashboard = () => {
   const handleClick = async () => {
     text === "" ? setSearch(false) : setSearch(true);
     try {
-      await axios
-        .get(`http://localhost:4000/api/artikel?title=${text}`)
-        .then((response) => {
-          setTimeout(() => setLoading(false), 1000);
-          setArtikels(response.data.data);
-        });
+      await axios.get(baseUrl).then((response) => {
+        setTimeout(() => setLoading(false), 1000);
+        setArtikels(response.data.data);
+      });
     } catch (error) {
       console.error("Error fetching search results:", error);
     }

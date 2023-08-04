@@ -3,12 +3,17 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import HeadingTitle from "../atoms/HeadingTitle";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const Contact = () => {
   const [response, setResponse] = useState<any>();
-  const baseUrl = "http://localhost:4000/api/contact";
+  const [loading, setLoading] = useState<boolean>(true);
+  const baseUrl = `${process.env.REACT_APP_API_URL}/contact`;
+
   useEffect(() => {
     axios.get(baseUrl).then((resp) => {
+      setTimeout(() => setLoading(false), 2000);
       setResponse(resp.data.data);
     });
   }, []);
@@ -36,7 +41,9 @@ const Contact = () => {
       pesan: data.pesan,
     };
     axios
-      .post("http://localhost:1337/api/form-contacts", { data: formContact })
+      .post(`${process.env.REACT_APP_STRAPI_URL}/api/form-contacts`, {
+        data: formContact,
+      })
       .catch((err) => console.log(err));
 
     Swal.fire({
@@ -58,12 +65,12 @@ const Contact = () => {
         <div className="mt-[20px] md:mt-[57px] flex flex-col gap-3 md:gap-6">
           <p className="font-medium text-type-l md:text-heading-s text-neutral800">
             <a href={`mailto:${response?.email}`} target="_blank">
-              {response?.email}
+              {response?.email || <Skeleton height={50} />}
             </a>
           </p>
           <p className="font-medium text-type-l md:text-heading-s text-neutral800">
             <a href={`https://wa.me/${response?.phonenumber}`} target="_blank">
-              {response?.phonenumber}
+              {response?.phonenumber || <Skeleton height={50} />}
             </a>
           </p>
         </div>

@@ -2,12 +2,15 @@ import { useEffect, useState } from "react";
 import BgGrafis from "../../assets/svg/Bg-Infografis.svg";
 import axios from "axios";
 import HeadingTitle from "../atoms/HeadingTitle";
+import Skeleton from "react-loading-skeleton";
 
 const Infografis = () => {
   const [response, setResponse] = useState<any>();
-  const baseUrl = "http://localhost:4000/api/infografis";
+  const [loading, setLoading] = useState<boolean>(true);
+  const baseUrl = `${process.env.REACT_APP_API_URL}/infografis`;
   useEffect(() => {
     axios.get(baseUrl).then((resp) => {
+      setTimeout(() => setLoading(false), 2000);
       setResponse(resp.data.data);
     });
   }, []);
@@ -16,13 +19,21 @@ const Infografis = () => {
       <div className="flex flex-col items-center justify-center sm:flex-row">
         <div className="flex flex-col order-1 gap-5 md:w-2/5">
           <HeadingTitle title={"Infografis"} />
-          <div
-            dangerouslySetInnerHTML={{ __html: `${response?.description}` }}
-            className="flex flex-col gap-3 font-normal text-type-l text-neutral500 font-inter"
-          ></div>
+          {loading ? (
+            <Skeleton height={50} count={3} />
+          ) : (
+            <div
+              dangerouslySetInnerHTML={{ __html: `${response?.description}` }}
+              className="flex flex-col gap-3 font-normal text-type-l text-neutral500 font-inter"
+            ></div>
+          )}
         </div>
         <div className="flex justify-center w-4/5 mb-10 md:w-3/5">
-          <img src={response?.image} />
+          {loading ? (
+            <Skeleton width={400} height={375} />
+          ) : (
+            <img src={response?.image} alt="infografis-image" />
+          )}
           <img src={BgGrafis} className="absolute -left-20 -top-16" />
         </div>
       </div>

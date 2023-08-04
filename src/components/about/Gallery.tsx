@@ -13,35 +13,35 @@ const Gallery = () => {
   return (
     <section className="max-w-screen-xl mx-auto md:px-5 px-4 xxl:px-0 mt-[40px]">
       <div>
-        <Swiper
-          spaceBetween={0}
-          effect={"fade"}
-          pagination={true}
-          navigation={true}
-          slidesPerView={"auto"}
-          centeredSlides={true}
-          rewind={true}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-          modules={[EffectFade, Autoplay, Pagination, Navigation]}
-          className="mySwiper"
-        >
-          {error && <p>{error.message}</p>}
-          {loading ? (
-            <Skeleton className="w-full h-[375px]" />
-          ) : (
-            response?.map((data: any) => (
+        {loading ? (
+          <Skeleton className="w-full h-[375px]" />
+        ) : (
+          <Swiper
+            spaceBetween={0}
+            effect={"fade"}
+            pagination={true}
+            navigation={true}
+            slidesPerView={"auto"}
+            centeredSlides={true}
+            rewind={true}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            modules={[EffectFade, Autoplay, Pagination, Navigation]}
+            className="mySwiper"
+          >
+            {response?.map((data: any) => (
               <SwiperSlide key={data.id}>
                 <img
                   src={data.image}
+                  alt="gallery-image"
                   className="w-full h-[375px] object-cover"
                 />
               </SwiperSlide>
-            ))
-          )}
-        </Swiper>
+            ))}
+          </Swiper>
+        )}
       </div>
     </section>
   );

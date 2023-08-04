@@ -11,6 +11,7 @@ const Artikels = (props: any) => {
       >
         <img
           src={props.img}
+          alt="article-image"
           className="w-[140px] md:w-[240px] h-[100px] md:h-[160px] rounded-2xl object-cover"
         />
         <h3 className="font-medium text-type-l md:text-heading-m text-primary500">

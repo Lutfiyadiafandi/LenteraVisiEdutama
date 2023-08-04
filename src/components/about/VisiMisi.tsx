@@ -6,7 +6,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 const VisiMisi = () => {
   const [response, setResponse] = useState<any>();
   const [loading, setLoading] = useState<boolean>(true);
-  const baseUrl = "http://localhost:4000/api/visimisi";
+  const baseUrl = `${process.env.REACT_APP_API_URL}/visimisi`;
   useEffect(() => {
     axios.get(baseUrl).then((resp) => {
       setTimeout(() => setLoading(false), 2000);
@@ -20,16 +20,24 @@ const VisiMisi = () => {
           {loading ? (
             <Skeleton width={400} height={450} />
           ) : (
-            <img src={response?.image} className="w-[400px]" />
+            <img
+              src={response?.image}
+              className="w-[400px] mx-auto md:mx-0"
+              alt="visimisi-image"
+            />
           )}
           <div className="flex flex-col justify-center gap-5 lg:gap-10">
             <h2 className="font-semibold text-heading-l lg:text-display2 text-neutral800">
               Visi & Misi
             </h2>
-            <div
-              dangerouslySetInnerHTML={{ __html: `${response?.description}` }}
-              className="flex flex-col gap-3 font-normal text-type-l text-neutral500 font-inter"
-            ></div>
+            {loading ? (
+              <Skeleton width={500} height={50} count={3} />
+            ) : (
+              <div
+                dangerouslySetInnerHTML={{ __html: `${response?.description}` }}
+                className="flex flex-col gap-3 font-normal text-type-l text-neutral500 font-inter"
+              ></div>
+            )}
           </div>
         </div>
       </div>
