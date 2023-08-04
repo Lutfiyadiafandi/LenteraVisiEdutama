@@ -35,7 +35,7 @@ const Footer = () => {
       <footer className="max-w-screen-xl px-4 mx-auto md:px-5 xxl:px-0">
         <div className="flex flex-col justify-between gap-10 px-10 pt-10 pb-10 md:pb-16 md:flex-row md:items-center md:px-0">
           <div>
-            <img src={Logo} className="w-8 md:w-10" />
+            <img src={Logo} className="w-8 md:w-10" alt="Logo-image" />
             <p className="pt-4 font-medium text-label-l text-neutral800">
               &copy;Copyright 2023 Lentera Visi Edutama
             </p>
@@ -57,7 +57,11 @@ const Footer = () => {
               Collaboration with
             </p>
             <div className="flex items-center">
-              <img src={Salt} className="w-12 md:w-[60px]" />
+              <img
+                src={Salt}
+                className="w-12 md:w-[60px]"
+                alt="saltacademy-image"
+              />
               <p className="text-[14px] font-medium text-neutral200">
                 SALT ACADEMY
               </p>

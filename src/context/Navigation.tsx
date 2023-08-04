@@ -43,7 +43,7 @@ const Navigation = () => {
       <div className="max-w-screen-xl px-4 mx-auto md:px-5 xxl:px-0">
         <div className="relative items-center justify-between px-2 py-5 sm:flex">
           <div>
-            <img src={Logo} className="w-10 md:w-14 xl:w-20" />
+            <img src={Logo} className="w-10 md:w-14 xl:w-20" alt="logo-image" />
           </div>
           <div>
             <ul className="hidden sm:flex">

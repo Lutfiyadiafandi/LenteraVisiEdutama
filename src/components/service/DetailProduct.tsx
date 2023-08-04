@@ -17,13 +17,9 @@ const ProductDetail = () => {
   const [contact, setContact] = useState<any>();
   const baseUrl = `${process.env.REACT_APP_API_URL}/contact`;
   useEffect(() => {
-    axios
-      .get(baseUrl, {
-        withCredentials: true,
-      })
-      .then((resp) => {
-        setContact(resp.data.data);
-      });
+    axios.get(baseUrl).then((resp) => {
+      setContact(resp.data.data);
+    });
   }, []);
 
   const [data, setData] = useState({
@@ -55,7 +51,11 @@ const ProductDetail = () => {
       })
       .catch((err) => console.log(err));
 
-    Swal.fire(`Thank You!`, `You Have Ordered Our Service: ${item}`, "success");
+    Swal.fire(
+      `Thank you for choosing our service! ${item},
+    please contact us at WhatsApp for further assistance.`,
+      "success"
+    );
     return setData({
       name: "",
       email: "",

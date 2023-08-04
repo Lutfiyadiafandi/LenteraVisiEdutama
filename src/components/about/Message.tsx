@@ -7,13 +7,9 @@ const Message = () => {
   const [response, setResponse] = useState<any>();
   const baseUrl = `${process.env.REACT_APP_API_URL}/contact`;
   useEffect(() => {
-    axios
-      .get(baseUrl, {
-        withCredentials: true,
-      })
-      .then((resp) => {
-        setResponse(resp.data.data);
-      });
+    axios.get(baseUrl).then((resp) => {
+      setResponse(resp.data.data);
+    });
   }, []);
   return (
     <div className="w-full bg-primary300 mt-[100px]">

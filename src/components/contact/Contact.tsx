@@ -12,14 +12,10 @@ const Contact = () => {
   const baseUrl = `${process.env.REACT_APP_API_URL}/contact`;
 
   useEffect(() => {
-    axios
-      .get(baseUrl, {
-        withCredentials: true,
-      })
-      .then((resp) => {
-        setTimeout(() => setLoading(false), 2000);
-        setResponse(resp.data.data);
-      });
+    axios.get(baseUrl).then((resp) => {
+      setTimeout(() => setLoading(false), 2000);
+      setResponse(resp.data.data);
+    });
   }, []);
 
   const [data, setData] = useState({
@@ -52,7 +48,7 @@ const Contact = () => {
 
     Swal.fire({
       icon: "success",
-      title: "Thank You For Sending the Message",
+      title: "Thank you for contacting us!",
       showConfirmButton: false,
       timer: 2000,
     });
