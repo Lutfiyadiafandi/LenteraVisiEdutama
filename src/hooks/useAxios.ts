@@ -9,10 +9,14 @@ export const useAxios = (url: string) => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`${baseUrl}/${url}`).then((resp) => {
-      setTimeout(() => setLoading(false), 2000);
-      setResponse(resp.data.data);
-    });
+    axios
+      .get(`${baseUrl}/${url}`, {
+        withCredentials: true,
+      })
+      .then((resp) => {
+        setTimeout(() => setLoading(false), 2000);
+        setResponse(resp.data.data);
+      });
     // .catch((err) => {
     //   setLoading(false);
     //   setError(err);

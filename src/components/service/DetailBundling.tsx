@@ -17,9 +17,13 @@ const BundlingDetail = () => {
   const [contact, setContact] = useState<any>();
   const baseUrl = `${process.env.REACT_APP_API_URL}/contact`;
   useEffect(() => {
-    axios.get(baseUrl).then((resp) => {
-      setContact(resp.data.data);
-    });
+    axios
+      .get(baseUrl, {
+        withCredentials: true,
+      })
+      .then((resp) => {
+        setContact(resp.data.data);
+      });
   }, []);
 
   const [data, setData] = useState({

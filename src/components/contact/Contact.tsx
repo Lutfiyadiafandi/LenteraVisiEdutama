@@ -12,10 +12,14 @@ const Contact = () => {
   const baseUrl = `${process.env.REACT_APP_API_URL}/contact`;
 
   useEffect(() => {
-    axios.get(baseUrl).then((resp) => {
-      setTimeout(() => setLoading(false), 2000);
-      setResponse(resp.data.data);
-    });
+    axios
+      .get(baseUrl, {
+        withCredentials: true,
+      })
+      .then((resp) => {
+        setTimeout(() => setLoading(false), 2000);
+        setResponse(resp.data.data);
+      });
   }, []);
 
   const [data, setData] = useState({

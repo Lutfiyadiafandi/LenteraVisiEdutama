@@ -13,10 +13,14 @@ const ArtikelDashboard = () => {
   const [search, setSearch] = useState(false);
   const baseUrl = `${process.env.REACT_APP_API_URL}/artikel?title=${text}`;
   useEffect(() => {
-    axios.get(baseUrl).then((response) => {
-      setTimeout(() => setLoading(false), 1000);
-      setArtikels(response.data.data);
-    });
+    axios
+      .get(baseUrl, {
+        withCredentials: true,
+      })
+      .then((response) => {
+        setTimeout(() => setLoading(false), 1000);
+        setArtikels(response.data.data);
+      });
   }, []);
 
   // SEARCH

@@ -9,10 +9,14 @@ const Infografis = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const baseUrl = `${process.env.REACT_APP_API_URL}/infografis`;
   useEffect(() => {
-    axios.get(baseUrl).then((resp) => {
-      setTimeout(() => setLoading(false), 2000);
-      setResponse(resp.data.data);
-    });
+    axios
+      .get(baseUrl, {
+        withCredentials: true,
+      })
+      .then((resp) => {
+        setTimeout(() => setLoading(false), 2000);
+        setResponse(resp.data.data);
+      });
   }, []);
   return (
     <section className="max-w-screen-xl mx-auto px-4 md:px-5 xxl:px-0 mt-[100px] md:mt-[162px] relative">
