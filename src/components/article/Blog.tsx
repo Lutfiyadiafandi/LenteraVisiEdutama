@@ -14,10 +14,10 @@ const Blog = () => {
     <section className="max-w-screen-xl mx-auto px-4 md:px-5 xxl:px-0 mt-[50px] md:mt-[112px]">
       <HeadingTitle title={"Artikel"} />
       <div className="flex flex-col w-full gap-5 py-4 md:flex-row">
-        {loading ? (
-          <BlogSkeleton />
-        ) : (
-          artikel?.slice(0, 3).map((artikel: any) => (
+        {artikel?.slice(0, 3).map((artikel: any) =>
+          loading ? (
+            <BlogSkeleton />
+          ) : (
             <div
               key={artikel.id}
               className="max-w-[400px] flex flex-col justify-between gap-4 p-4 border border-neutral30 rounded-2xl"
@@ -34,7 +34,9 @@ const Blog = () => {
                   {artikel.title}
                 </h3>
                 <div
-                  dangerouslySetInnerHTML={{ __html: `${artikel?.content}` }}
+                  dangerouslySetInnerHTML={{
+                    __html: `${artikel.content.substring(0, 150)}`,
+                  }}
                   className="font-normal text-type-s md:text-type-m text-neutral500 line-clamp-2"
                 ></div>
               </div>
@@ -46,7 +48,7 @@ const Blog = () => {
                 />
               </div>
             </div>
-          ))
+          )
         )}
       </div>
 

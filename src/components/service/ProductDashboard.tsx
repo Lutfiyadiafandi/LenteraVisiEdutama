@@ -13,11 +13,10 @@ const ProductDashboard = () => {
       </div>
 
       <div className="flex justify-between lg:justify-normal flex-wrap gap-x-5 lg:gap-x-24 xxl:gap-x-[125px] gap-y-10 xl:gap-y-20">
-        {error && <p>{error.message}</p>}
-        {loading ? (
-          <ProductSkeleton />
-        ) : (
-          response?.map((product: any) => (
+        {response?.map((product: any) =>
+          loading ? (
+            <ProductSkeleton />
+          ) : (
             <ProductComp
               key={product.id}
               slug={product.slug}
@@ -30,7 +29,7 @@ const ProductDashboard = () => {
               discountprice={product.discountprice}
               description={product.description}
             />
-          ))
+          )
         )}
       </div>
     </section>

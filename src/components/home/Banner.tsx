@@ -9,8 +9,8 @@ const Banner = () => {
   const baseUrl = `${process.env.REACT_APP_API_URL}/banner`;
   useEffect(() => {
     axios.get(baseUrl).then((resp) => {
-      setTimeout(() => setLoading(false), 2000);
       setResponse(resp.data.data);
+      setTimeout(() => setLoading(false), 1000);
     });
   }, []);
 

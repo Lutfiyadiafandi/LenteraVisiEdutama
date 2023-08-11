@@ -10,14 +10,14 @@ const Partner = () => {
       <div className="flex flex-wrap">
         <HeadingTitle title={"Partner Kami"} />
         <div className="flex w-full md:w-1/2 flex-wrap justify-center gap-5 sm:gap-[55px] lg:ml-14 py-10">
-          {loading ? (
-            <PartnerSkeleton />
-          ) : (
-            response?.map((data: any) => (
+          {response?.map((data: any) =>
+            loading ? (
+              <PartnerSkeleton />
+            ) : (
               <div className="w-[117px] h-[117px]" key={data.id}>
                 <img src={data.logo} alt="partner-image" />
               </div>
-            ))
+            )
           )}
         </div>
       </div>

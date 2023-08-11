@@ -7,13 +7,15 @@ import ContactUs from "./pages/contact/ContactUs";
 import ArtikelDetails from "./pages/article/ArtikelDetails";
 import BundlingDetails from "./pages/service/BundlingDetails";
 import ServiceDetails from "./pages/service/ServiceDetails";
+import ScrollToTop from "./utils/ScrollToTop";
 
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
-        <Route index element={<Home />} />
         <Route path="/" element={<Home />} />
+        <Route index element={<Home />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/service" element={<OurService />} />
         <Route path="/service/:slug" element={<ServiceDetails />} />

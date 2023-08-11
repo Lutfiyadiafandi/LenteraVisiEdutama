@@ -33,7 +33,11 @@ const Testimoni = () => {
                 <SwiperSlide key={data.id}>
                   <div className="lg:ml-[50px] xxl:ml-[87px] max-w-[715px] max-h-max mx-auto rounded-2xl flex flex-col sm:flex-row justify-center items-center p-4 md:p-6 gap-4 border-[1px] border-gradient">
                     <div className="flex-none w-[128px] h-[128px]">
-                      <img src={data.image} alt="testimoni-image" />
+                      <img
+                        src={data.image}
+                        alt="testimoni-image"
+                        className="rounded-full"
+                      />
                     </div>
                     <div className="grow">
                       <h4 className="font-medium text-center text-heading-s md:text-heading-m text-neutral900 md:text-left">

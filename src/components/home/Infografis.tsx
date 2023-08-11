@@ -10,8 +10,8 @@ const Infografis = () => {
   const baseUrl = `${process.env.REACT_APP_API_URL}/infografis`;
   useEffect(() => {
     axios.get(baseUrl).then((resp) => {
-      setTimeout(() => setLoading(false), 2000);
       setResponse(resp.data.data);
+      setTimeout(() => setLoading(false), 1000);
     });
   }, []);
   return (

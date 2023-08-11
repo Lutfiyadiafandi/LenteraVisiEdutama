@@ -14,10 +14,10 @@ const Bundling = () => {
       </div>
 
       <div className="flex flex-wrap justify-between gap-10">
-        {loading ? (
-          <BundlingSkeleton />
-        ) : (
-          response?.map((bundle: any) => (
+        {response?.map((bundle: any) =>
+          loading ? (
+            <BundlingSkeleton />
+          ) : (
             <div
               key={bundle.id}
               className="w-[600px] flex flex-col gap-3 md:gap-4 p-3 md:p-5 bg-gradient-to-r from-gradient justify-between to-primary200 rounded-2xl mx-auto"
@@ -56,7 +56,7 @@ const Bundling = () => {
                 />
               </div>
             </div>
-          ))
+          )
         )}
       </div>
     </section>

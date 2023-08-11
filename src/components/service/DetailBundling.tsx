@@ -12,7 +12,6 @@ const BundlingDetail = () => {
   const { slug } = useParams();
   const [response, loading, error] = useAxios("bundling");
   const product: any = response?.filter((item: any) => item.slug == slug)[0];
-  const item = product?.title;
 
   const [contact, setContact] = useState<any>();
   const baseUrl = `${process.env.REACT_APP_API_URL}/contact`;
@@ -43,17 +42,16 @@ const BundlingDetail = () => {
       name: data.name,
       email: data.email,
       phone: data.phone,
-      product: item,
+      product: product?.title,
     };
-    axios
-      .post(`${process.env.REACT_APP_STRAPI_URL}/api/form-products`, {
-        data: formProduct,
-      })
-      .catch((err) => console.log(err));
+    axios.post(`${process.env.REACT_APP_STRAPI_URL}/api/form-products`, {
+      data: formProduct,
+    });
 
     Swal.fire(
-      `Thank you for choosing our service! ${item},
-    please contact us at WhatsApp for further assistance.`,
+      `Thank you for choosing our service!`,
+      `${product?.title}
+      Please contact us at WhatsApp for further assistance.`,
       "success"
     );
     return setData({
@@ -72,7 +70,6 @@ const BundlingDetail = () => {
     <div className="w-full bg-neutral20 pt-[55px] pb-[107px] px-4 xxl:px-0">
       <section className="max-w-[1030px] mx-auto py-8 px-4 md:py-[50px] md:px-[120px] lg:py-[100px] lg:px-[210px] bg-neutral0 border border-neutral50 rounded-[30px]">
         <div className="flex flex-col gap-12 md:gap-20">
-          {error && <p>{error.message}</p>}
           <div className="flex flex-col gap-6 md:gap-10">
             <div className="flex flex-col gap-5 judul">
               <h3 className="font-medium text-heading-s md:text-heading-l text-neutral800">

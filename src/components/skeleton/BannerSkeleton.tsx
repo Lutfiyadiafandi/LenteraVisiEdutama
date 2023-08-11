@@ -11,7 +11,7 @@ const BannerSkeleton = () => {
         <Skeleton height={40} />
       </div>
       <div className="flex justify-center order-first md:order-last md:w-5/12">
-        <Skeleton circle width={400} height={400} />
+        <Skeleton width={350} height={350} />
       </div>
     </div>
   );

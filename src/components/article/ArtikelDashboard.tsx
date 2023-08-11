@@ -14,8 +14,8 @@ const ArtikelDashboard = () => {
   const baseUrl = `${process.env.REACT_APP_API_URL}/artikel?title=${text}`;
   useEffect(() => {
     axios.get(baseUrl).then((response) => {
-      setTimeout(() => setLoading(false), 1000);
       setArtikels(response.data.data);
+      setTimeout(() => setLoading(false), 1000);
     });
   }, []);
 
@@ -27,8 +27,8 @@ const ArtikelDashboard = () => {
     text === "" ? setSearch(false) : setSearch(true);
     try {
       await axios.get(baseUrl).then((response) => {
-        setTimeout(() => setLoading(false), 1000);
         setArtikels(response.data.data);
+        setTimeout(() => setLoading(false), 1000);
       });
     } catch (error) {
       console.error("Error fetching search results:", error);
@@ -84,17 +84,17 @@ const ArtikelDashboard = () => {
         ) : (
           <div>
             <div className="pt-[22px] flex flex-col gap-4">
-              {loading ? (
-                <ArtikelSkeleton />
-              ) : (
-                displayArtikels.map((artikel: any) => (
+              {displayArtikels.map((artikel: any) =>
+                loading ? (
+                  <ArtikelSkeleton />
+                ) : (
                   <ArtikelComp
                     key={artikel.id}
                     slug={artikel.slug}
                     img={artikel.image}
                     title={artikel.title}
                   />
-                ))
+                )
               )}
             </div>
             <div className="flex justify-end w-full">

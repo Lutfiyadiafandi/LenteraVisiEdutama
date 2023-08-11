@@ -33,8 +33,8 @@ const Footer = () => {
   return (
     <div className="w-full mt-5 bg-neutral10">
       <footer className="max-w-screen-xl px-4 mx-auto md:px-5 xxl:px-0">
-        <div className="flex flex-col justify-between gap-10 px-10 pt-10 pb-10 md:pb-16 md:flex-row md:items-center md:px-0">
-          <div>
+        <div className="flex flex-col justify-between gap-10 px-4 pt-10 pb-10 md:pb-16 md:flex-row md:items-center md:px-0">
+          <div className="order-last md:order-first">
             <img src={Logo} className="w-8 md:w-10" alt="Logo-image" />
             <p className="pt-4 font-medium text-label-l text-neutral800">
               &copy;Copyright 2023 Lentera Visi Edutama
@@ -48,11 +48,12 @@ const Footer = () => {
                   className="font-normal capitalize cursor-pointer text-type-m text-neutral800 hover:text-neutral100"
                 >
                   <NavLink to={nav.path}>{nav.link}</NavLink>
+                  {/* <a href={nav.path}>{nav.link}</a> */}
                 </li>
               ))}
             </ul>
           </div>
-          <div>
+          <div className="order-first md:order-last">
             <p className="font-normal text-label-l text-neutral200">
               Collaboration with
             </p>

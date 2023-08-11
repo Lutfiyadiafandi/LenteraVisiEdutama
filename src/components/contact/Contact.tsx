@@ -13,8 +13,8 @@ const Contact = () => {
 
   useEffect(() => {
     axios.get(baseUrl).then((resp) => {
-      setTimeout(() => setLoading(false), 2000);
       setResponse(resp.data.data);
+      setTimeout(() => setLoading(false), 1000);
     });
   }, []);
 

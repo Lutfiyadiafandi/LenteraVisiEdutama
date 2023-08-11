@@ -10,10 +10,10 @@ const Whylve = () => {
     <section className="max-w-screen-xl mx-auto px-4 md:px-5 xxl:px-0 mt-[100px] md:mt-[150px] lg:mt-[300px]">
       <HeadingTitle title={"Kenapa Lentera Visi Edutama"} />
       <div className="flex flex-col flex-wrap justify-between gap-4 py-10 lg:flex-row">
-        {loading ? (
-          <WhyLVESkeleton />
-        ) : (
-          response?.map((data: any) => (
+        {response?.map((data: any) =>
+          loading ? (
+            <WhyLVESkeleton />
+          ) : (
             <div
               key={data.id}
               className="max-w-[350px] md:min-w-[400px] flex gap-4 py-5 px-4 bg-primary500 rounded-2xl text-neutral0 mx-auto"
@@ -32,7 +32,7 @@ const Whylve = () => {
                 </p>
               </div>
             </div>
-          ))
+          )
         )}
       </div>
     </section>

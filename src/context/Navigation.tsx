@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -43,7 +43,13 @@ const Navigation = () => {
       <div className="max-w-screen-xl px-4 mx-auto md:px-5 xxl:px-0">
         <div className="relative items-center justify-between px-2 py-5 sm:flex">
           <div>
-            <img src={Logo} className="w-10 md:w-14 xl:w-20" alt="logo-image" />
+            <Link to={"/"}>
+              <img
+                src={Logo}
+                className="w-10 md:w-14 xl:w-20"
+                alt="logo-image"
+              />
+            </Link>
           </div>
           <div>
             <ul className="hidden sm:flex">
@@ -71,7 +77,7 @@ const Navigation = () => {
 
           {nav && (
             <div className="sm:hidden">
-              <ul className="flex flex-col items-start gap-2 px-2 mt-5">
+              <ul className="flex flex-col items-start gap-2 mt-5">
                 {navs.map((nav) => (
                   <li
                     key={nav.id}

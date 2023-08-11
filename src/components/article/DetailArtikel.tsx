@@ -10,6 +10,27 @@ const ArtikelDetail = () => {
   const { slug } = useParams();
   const [response, loading, error] = useAxios(`artikel/${slug}`);
   const artikel: any = response;
+  const [content, setContent] = useState("");
+
+  useEffect(() => {
+    const safeInnerHTML = (html: any) => {
+      const doc = new DOMParser().parseFromString(html, "text/html");
+      const images = doc.querySelectorAll("img");
+      images.forEach((img) => {
+        const src = img.getAttribute("src");
+        if (src && src.startsWith("/uploads")) {
+          img.setAttribute("src", `${process.env.REACT_APP_STRAPI_URL}${src}`);
+        }
+      });
+      return doc.body.innerHTML;
+    };
+
+    if (artikel) {
+      const manipulatedContent = safeInnerHTML(artikel.content);
+      setContent(manipulatedContent);
+    }
+  }, [artikel]);
+  console.log(content);
 
   const url = window.location.href;
   const shareOnSocialMedia = (socialMedia: string) => {
@@ -45,7 +66,6 @@ const ArtikelDetail = () => {
 
   return (
     <section className="max-w-screen-xl px-4 mx-auto md:px-5 xxl:px-0">
-      {error && <p>{error.message}</p>}
       <div className="w-full mt-8 md:mt-[74px]">
         {loading ? (
           <Skeleton className="w-[250px] h-[280px] xl:h-[504px]" />
@@ -97,7 +117,7 @@ const ArtikelDetail = () => {
       </div>
 
       <div
-        dangerouslySetInnerHTML={{ __html: `${artikel?.content}` }}
+        dangerouslySetInnerHTML={{ __html: `${content}` }}
         className="flex flex-col w-full gap-5 pt-5 font-normal font-inter text-type-m md:text-type-l text-neutral500 md:w-4/5 md:pt-10 md:gap-10"
       ></div>
     </section>
