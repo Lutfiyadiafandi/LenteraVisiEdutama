@@ -3,7 +3,6 @@ import { useAxios } from "../../hooks/useAxios";
 import ModalRegist from "./ModalRegist";
 import IconBtn from "../atoms/IconBtn";
 import ModalDetail from "./ModalDetail";
-import ModalTitleBundling from "./ModalTitleBundling";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -48,22 +47,27 @@ const BundlingDetail = () => {
       data: formProduct,
     });
 
-    Swal.fire(
-      `Thank you for choosing our service!`,
-      `${product?.title}
-      Please contact us at WhatsApp for further assistance.`,
-      "success"
-    );
+    const whatsappMessage = `Saya tertarik untuk mengikuti bundling pelatihan "${product?.title}",
+Nama: ${data.name}
+Email: ${data.email}
+Phone: ${data.phone}`;
+
+    Swal.fire({
+      title: `Thank you for choosing our bundling service!`,
+      text: `Please contact us at WhatsApp for further assistance.`,
+      icon: "success",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const encodedMessage = encodeURIComponent(whatsappMessage);
+        window.location.href = `https://wa.me/${contact.phonenumber}?text=${encodedMessage}`;
+        console.log(encodedMessage);
+      }
+    });
     return setData({
       name: "",
       email: "",
       phone: "",
     });
-  };
-
-  const handleClick = () => {
-    const url = `https://wa.me/${contact.phonenumber}`;
-    setTimeout(() => window.open(url, "_blank"), 5000);
   };
 
   return (
@@ -143,7 +147,6 @@ const BundlingDetail = () => {
                 </div>
                 <button
                   type="submit"
-                  onClick={handleClick}
                   className="w-full px-4 py-2 mx-auto font-medium transition-all duration-300 ease-in-out border rounded-lg cursor-pointer text-type-m text-neutral900 bg-neutral0 border-gradient hover:bg-primary300 hover:text-neutral30 focus:outline-none group"
                 >
                   {<IconBtn title={"Submit"} />}
