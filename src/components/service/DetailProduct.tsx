@@ -61,7 +61,6 @@ Phone: ${data.phone}`;
       if (result.isConfirmed) {
         const encodedMessage = encodeURIComponent(whatsappMessage);
         window.location.href = `https://wa.me/${contact.phonenumber}?text=${encodedMessage}`;
-        console.log(encodedMessage);
       }
     });
     return setData({
