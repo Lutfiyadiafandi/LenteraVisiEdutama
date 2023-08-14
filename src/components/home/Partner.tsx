@@ -14,7 +14,7 @@ const Partner = () => {
             loading ? (
               <PartnerSkeleton />
             ) : (
-              <div className="w-[117px] md:h-[117px]" key={data.id}>
+              <div className="w-[100px] h-auto md:w-[117px]" key={data.id}>
                 <img src={data.logo} alt="partner-image" />
               </div>
             )
