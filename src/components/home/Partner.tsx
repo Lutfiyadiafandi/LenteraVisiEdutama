@@ -9,12 +9,12 @@ const Partner = () => {
     <section className="max-w-screen-xl mx-auto px-4 md:px-5 xxl:px-0 mt-[100px] md:mt-[248px]">
       <div className="flex flex-wrap">
         <HeadingTitle title={"Partner Kami"} />
-        <div className="flex w-full md:w-1/2 flex-wrap justify-center gap-5 sm:gap-[55px] lg:ml-14 py-10">
+        <div className="flex w-full md:w-1/2 flex-wrap justify-center gap-x-[55px] gap-y-[30px] md:gap-y-[55px] lg:ml-14 py-10">
           {response?.map((data: any) =>
             loading ? (
               <PartnerSkeleton />
             ) : (
-              <div className="w-[117px] h-[117px]" key={data.id}>
+              <div className="w-[117px] md:h-[117px]" key={data.id}>
                 <img src={data.logo} alt="partner-image" />
               </div>
             )

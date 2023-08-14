@@ -20,7 +20,7 @@ const Blog = () => {
           ) : (
             <div
               key={artikel.id}
-              className="max-w-[400px] flex flex-col justify-between gap-4 p-4 border border-neutral30 rounded-2xl"
+              className="max-w-[400px] flex flex-col justify-between gap-4 p-4 border border-neutral30 rounded-2xl mx-auto"
             >
               <div>
                 <img

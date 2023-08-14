@@ -4,7 +4,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 
 const BlogSkeleton = () => {
   return (
-    <div className="max-w-[400px] flex flex-col justify-between gap-4 p-4 border border-neutral30 rounded-2xl">
+    <div className="max-w-[400px] flex flex-col justify-between gap-4 p-4 border border-neutral30 rounded-2xl mx-auto">
       <Skeleton width={360} height={170} />
       <div className="flex flex-col gap-2">
         <Skeleton height={40} />
